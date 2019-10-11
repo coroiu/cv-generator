@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AvatarComponent } from './avatar/avatar.component';
+import { GravatarModule } from 'ngx-gravatar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GravatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
