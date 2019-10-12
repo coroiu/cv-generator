@@ -7,6 +7,8 @@ export interface JsonResume {
   publications?: Publication[];
   skills?: Skill[];
   languages?: Language[];
+  interests?: Interest;
+  references?: Reference;
 }
 
 export interface Basics {
@@ -89,4 +91,14 @@ export interface Skill {
 export interface Language {
   language: string;
   fluency: 'elementary' | 'limited' | 'professional' | 'full' | 'native' | string;
+}
+
+export interface Interest {
+  name: string;
+  keywords: string[];
+}
+
+export interface Reference {
+  name: string;
+  reference: string;
 }

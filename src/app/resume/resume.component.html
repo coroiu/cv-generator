@@ -35,3 +35,11 @@
 <div *ngIf="resume.languages" class="language-section">
   <language *ngFor="let language of resume.languages" [language]="language"></language>
 </div>
+
+<div *ngIf="resume.interests" class="interest-section">
+  <interest *ngFor="let interest of resume.interests" [interest]="interest"></interest>
+</div>
+
+<div *ngIf="resume.references" class="reference-section">
+  <reference *ngFor="let reference of resume.references" [reference]="reference"></reference>
+</div>

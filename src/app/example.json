@@ -108,5 +108,27 @@
       "name": "Jane Doe",
       "reference": "Reference..."
     }
+  ],
+  "projects": [
+    {
+      "name": "The World Wide Web",
+      "description": "Short summary of the project, e.g. Collated works of 2017",
+      "highlights": [
+        "Directs you close but not quite there"
+      ],
+      "keywords": [
+        "AngularJS"
+      ],
+      "startDate": "2014-06-29",
+      "endDate": "2014-10-29",
+      "url": "http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html",
+      "roles": [
+        "Team Lead",
+        " Speaker",
+        "Writer"
+      ],
+      "entity": "CorporationXYZ",
+      "type": "volunteering"
+    }
   ]
 }

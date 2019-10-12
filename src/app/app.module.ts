@@ -15,6 +15,8 @@ import { AwardComponent } from './resume/award/award.component';
 import { PublicationComponent } from './resume/publication/publication.component';
 import { SkillComponent } from './resume/skill/skill.component';
 import { LanguageComponent } from './resume/language/language.component';
+import { InterestComponent } from './resume/interest/interest.component';
+import { ReferenceComponent } from './resume/reference/reference.component';
 
 const gravatarConfig = {
   size: 512,
@@ -34,7 +36,9 @@ const gravatarConfig = {
     AwardComponent,
     PublicationComponent,
     SkillComponent,
-    LanguageComponent
+    LanguageComponent,
+    InterestComponent,
+    ReferenceComponent
   ],
   imports: [
     BrowserModule,
