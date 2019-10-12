@@ -11,6 +11,7 @@ export interface Basics {
   website?: string;
   summary?: string;
   location?: Location;
+  profiles?: Profile[];
 }
 
 export interface Location {
