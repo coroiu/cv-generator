@@ -1,0 +1,4 @@
+<div *ngIf="language.language" class="language">{{language.language}}</div>
+<div *ngIf="language.fluency" [ngClass]="fluencyClasses">
+  <span class="label">{{language.fluency}}</span>
+</div>

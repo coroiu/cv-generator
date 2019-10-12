@@ -6,6 +6,7 @@ export interface JsonResume {
   awards?: Award[];
   publications?: Publication[];
   skills?: Skill[];
+  languages?: Language[];
 }
 
 export interface Basics {
@@ -81,6 +82,11 @@ export interface Publication {
 
 export interface Skill {
   name?: string;
-  level?: 'beginner' | 'intermediate' | 'advanced' | 'master';
+  level?: 'beginner' | 'intermediate' | 'advanced' | 'master' | string;
   keywords?: string[];
+}
+
+export interface Language {
+  language: string;
+  fluency: 'elementary' | 'limited' | 'professional' | 'full' | 'native' | string;
 }

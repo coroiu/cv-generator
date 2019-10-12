@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Skill } from 'src/app/json-resume/json-resume';
+import { toKebabCase } from 'src/app/utils';
 
 @Component({
   selector: 'skill',
@@ -15,11 +16,6 @@ export class SkillComponent implements OnInit {
   }
 
   get levelClasses() {
-    return ['skill', this.toKebabCase(this.skill.level)];
-  }
-
-  toKebabCase(str: string) {
-    str = str.toLowerCase();
-    return str.replace(' ', '-');
+    return ['skill', toKebabCase(this.skill.level)];
   }
 }

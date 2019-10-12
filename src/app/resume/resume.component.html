@@ -31,3 +31,7 @@
 <div *ngIf="resume.skills" class="skill-section">
   <skill *ngFor="let skill of resume.skills" [skill]="skill"></skill>
 </div>
+
+<div *ngIf="resume.languages" class="language-section">
+  <language *ngFor="let language of resume.languages" [language]="language"></language>
+</div>
