@@ -9,7 +9,7 @@ body {
   }
 
   @media screen {
-    background: #e0e0e0;
+    background: rgb(82, 86, 89);
   }
 
   .sheet {
@@ -26,7 +26,7 @@ body {
 
     @media screen {
       background: white;
-      box-shadow: 0 .5mm 2mm rgba(0,0,0,.3);
+      box-shadow: 0 .5mm 2mm rgba(0,0,0,.5);
       margin: 5mm auto;
     }
 
