@@ -8,3 +8,6 @@
   </ng-container>
 </ng-container>
 
+<div *ngIf="resume.work" class="work-experiences">
+  <app-work *ngFor="let work of resume.work" [work]="work"></app-work>
+</div>

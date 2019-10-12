@@ -1,0 +1,19 @@
+<ng-container *ngIf="work.website">
+  <a [href]="work.website" class="company-link">
+    <div class="company">{{work.company}}</div>
+  </a>
+</ng-container>
+
+<ng-container *ngIf="!work.website">
+  <div class="company">{{work.company}}</div>
+</ng-container>
+<div class="position">{{work.position}}</div>
+<div class="summary">{{work.summary}}</div>
+<div class="duration">
+  <div class="start-date">{{work.startDate}}</div>
+  <div class="end-date">{{work.endDate}}</div>
+</div>
+
+<div *ngIf="work.highlights" class="highlights">
+  <div *ngFor="let highlight of work.highlights" class="highlight">{{highlight}}</div>
+</div>

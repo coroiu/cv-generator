@@ -8,6 +8,7 @@ import { GravatarModule, GravatarConfig } from 'ngx-gravatar';
 import { ResumeComponent } from './resume/resume.component';
 import { LocationComponent } from './resume/location/location.component';
 import { ProfileComponent } from './resume/profile/profile.component';
+import { WorkComponent } from './resume/work/work.component';
 
 const gravatarConfig = {
   size: 512,
@@ -20,7 +21,8 @@ const gravatarConfig = {
     AvatarComponent,
     ResumeComponent,
     LocationComponent,
-    ProfileComponent
+    ProfileComponent,
+    WorkComponent
   ],
   imports: [
     BrowserModule,
