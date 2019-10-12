@@ -1,0 +1,26 @@
+<ng-container *ngIf="project.url">
+  <a [href]="project.url" class="project-link">
+    <div *ngIf="project.name" class="name">{{project.name}}</div>
+  </a>
+</ng-container>
+<ng-container *ngIf="!project.url">
+  <div *ngIf="project.name" class="name">{{project.name}}</div>
+</ng-container>
+
+<div *ngIf="project.description" class="description">{{project.description}}</div>
+<div *ngIf="project.startDate" class="startDate">{{project.startDate}}</div>
+<div *ngIf="project.endDate" class="endDate">{{project.endDate}}</div>
+<div *ngIf="project.entity" class="entity">{{project.entity}}</div>
+<div *ngIf="project.type" class="type">{{project.type}}</div>
+
+<div *ngIf="project.highlights" class="highlights">
+  <div *ngFor="let highlight of project.highlights">{{highlight}}</div>
+</div>
+
+<div *ngIf="project.keywords" class="keywords">
+  <div *ngFor="let keyword of project.keywords">{{keyword}}</div>
+</div>
+
+<div *ngIf="project.roles" class="roles">
+  <div *ngFor="let role of project.roles">{{role}}</div>
+</div>

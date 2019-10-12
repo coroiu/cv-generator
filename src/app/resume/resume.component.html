@@ -43,3 +43,7 @@
 <div *ngIf="resume.references" class="reference-section">
   <reference *ngFor="let reference of resume.references" [reference]="reference"></reference>
 </div>
+
+<div *ngIf="resume.projects" class="project-section">
+  <project *ngFor="let project of resume.projects" [project]="project"></project>
+</div>

@@ -17,6 +17,7 @@ import { SkillComponent } from './resume/skill/skill.component';
 import { LanguageComponent } from './resume/language/language.component';
 import { InterestComponent } from './resume/interest/interest.component';
 import { ReferenceComponent } from './resume/reference/reference.component';
+import { ProjectComponent } from './resume/project/project.component';
 
 const gravatarConfig = {
   size: 512,
@@ -38,7 +39,8 @@ const gravatarConfig = {
     SkillComponent,
     LanguageComponent,
     InterestComponent,
-    ReferenceComponent
+    ReferenceComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
