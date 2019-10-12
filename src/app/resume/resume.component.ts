@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { JsonResume } from '../json-resume/json-resume';
 
 @Component({
   selector: 'app-resume',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent implements OnInit {
-  @Input() resume: object;
+  @Input() resume: JsonResume;
 
   constructor() { }
 

@@ -1,1 +1,5 @@
-<app-avatar *ngIf="resume.basics" [email]="resume.basics.email" [picture]="resume.basics.picture"></app-avatar>
+<ng-container *ngIf="resume.basics">
+  <app-avatar *ngIf="resume.basics" [email]="resume.basics.email" [picture]="resume.basics.picture"></app-avatar>
+  <app-location *ngIf="resume.basics.location" [location]="resume.basics.location"></app-location>
+</ng-container>
+

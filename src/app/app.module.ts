@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AvatarComponent } from './resume/avatar/avatar.component';
 import { GravatarModule, GravatarConfig } from 'ngx-gravatar';
 import { ResumeComponent } from './resume/resume.component';
+import { LocationComponent } from './resume/location/location.component';
 
 const gravatarConfig = {
   size: 512,
@@ -16,7 +17,8 @@ const gravatarConfig = {
   declarations: [
     AppComponent,
     AvatarComponent,
-    ResumeComponent
+    ResumeComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
