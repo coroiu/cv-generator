@@ -15,3 +15,7 @@
 <div *ngIf="resume.volunteer" class="volunteer-section">
   <app-volunteer *ngFor="let volunteer of resume.volunteer" [volunteer]="volunteer"></app-volunteer>
 </div>
+
+<div *ngIf="resume.education" class="education-section">
+  <app-education *ngFor="let education of resume.education" [education]="education"></app-education>
+</div>

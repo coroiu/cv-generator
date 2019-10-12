@@ -10,6 +10,7 @@ import { LocationComponent } from './resume/location/location.component';
 import { ProfileComponent } from './resume/profile/profile.component';
 import { WorkComponent } from './resume/work/work.component';
 import { VolunteerComponent } from './resume/volunteer/volunteer.component';
+import { EducationComponent } from './resume/education/education.component';
 
 const gravatarConfig = {
   size: 512,
@@ -24,7 +25,8 @@ const gravatarConfig = {
     LocationComponent,
     ProfileComponent,
     WorkComponent,
-    VolunteerComponent
+    VolunteerComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,
