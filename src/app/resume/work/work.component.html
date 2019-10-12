@@ -1,13 +1,14 @@
+<div class="position">{{work.position}}</div>
+
 <ng-container *ngIf="work.website">
   <a [href]="work.website" class="company-link">
     <div class="company">{{work.company}}</div>
   </a>
 </ng-container>
-
 <ng-container *ngIf="!work.website">
   <div class="company">{{work.company}}</div>
 </ng-container>
-<div class="position">{{work.position}}</div>
+
 <div class="summary">{{work.summary}}</div>
 <div class="duration">
   <div class="start-date">{{work.startDate}}</div>

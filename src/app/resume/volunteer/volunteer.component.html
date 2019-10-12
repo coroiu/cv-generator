@@ -1,0 +1,20 @@
+<div class="position">{{volunteer.position}}</div>
+
+<ng-container *ngIf="volunteer.website">
+  <a [href]="volunteer.website" class="organization-link">
+    <div class="organization">{{volunteer.organization}}</div>
+  </a>
+</ng-container>
+<ng-container *ngIf="!volunteer.website">
+  <div class="organization">{{volunteer.organization}}</div>
+</ng-container>
+
+<div class="summary">{{volunteer.summary}}</div>
+<div class="duration">
+  <div class="start-date">{{volunteer.startDate}}</div>
+  <div class="end-date">{{volunteer.endDate}}</div>
+</div>
+
+<div *ngIf="volunteer.highlights" class="highlights">
+  <div *ngFor="let highlight of volunteer.highlights" class="highlight">{{highlight}}</div>
+</div>

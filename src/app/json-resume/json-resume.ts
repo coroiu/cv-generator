@@ -1,6 +1,7 @@
 export interface JsonResume {
   basics?: Basics;
   work?: Work[];
+  volunteer?: Volunteer[];
 }
 
 export interface Basics {
@@ -31,6 +32,16 @@ export interface Profile {
 
 export interface Work {
   company?: string;
+  position?: string;
+  website?: string;
+  startDate?: string;
+  endDate?: string;
+  summary?: string;
+  highlights?: string[];
+}
+
+export interface Volunteer {
+  organization?: string;
   position?: string;
   website?: string;
   startDate?: string;
