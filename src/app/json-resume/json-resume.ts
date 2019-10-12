@@ -2,7 +2,8 @@ export interface JsonResume {
   basics?: Basics;
   work?: Work[];
   volunteer?: Volunteer[];
-  education: Education[];
+  education?: Education[];
+  awards?: Award[];
 }
 
 export interface Basics {
@@ -59,4 +60,11 @@ export interface Education {
   endDate?: string;
   gpa?: string;
   courses?: string[];
+}
+
+export interface Award {
+  title?: string;
+  date?: string;
+  awarder?: string;
+  summary?: string;
 }
