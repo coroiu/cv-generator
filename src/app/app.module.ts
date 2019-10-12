@@ -4,8 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AvatarComponent } from './resume/avatar/avatar.component';
-import { GravatarModule } from 'ngx-gravatar';
+import { GravatarModule, GravatarConfig } from 'ngx-gravatar';
 import { ResumeComponent } from './resume/resume.component';
+
+const gravatarConfig = {
+  size: 512,
+  round: false
+} as GravatarConfig;
 
 @NgModule({
   declarations: [
@@ -16,7 +21,7 @@ import { ResumeComponent } from './resume/resume.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GravatarModule
+    GravatarModule.forRoot(gravatarConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

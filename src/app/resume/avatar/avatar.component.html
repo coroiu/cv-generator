@@ -1,1 +1,2 @@
-<p>avatar works!</p>
+<img *ngIf="usePicture" [src]="picture">
+<img *ngIf="useGravatar" ngxGravatar [email]="email">

@@ -1,7 +1,3 @@
 <div class="sheet">
-  Page 1
-</div>
-
-<div class="sheet">
-  Page 2
+  <app-resume *ngIf="resume" [resume]="resume | async"></app-resume>
 </div>
