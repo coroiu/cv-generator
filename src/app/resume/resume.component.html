@@ -1,23 +1,23 @@
 <ng-container *ngIf="resume.basics">
-  <app-avatar *ngIf="resume.basics" [email]="resume.basics.email" [picture]="resume.basics.picture"></app-avatar>
+  <avatar *ngIf="resume.basics" [email]="resume.basics.email" [picture]="resume.basics.picture"></avatar>
 
-  <app-location *ngIf="resume.basics.location" [location]="resume.basics.location"></app-location>
+  <location *ngIf="resume.basics.location" [location]="resume.basics.location"></location>
 
   <ng-container *ngIf="resume.basics.profiles">
-    <app-profile *ngFor="let profile of resume.basics.profiles" [profile]="profile"></app-profile>
+    <profile *ngFor="let profile of resume.basics.profiles" [profile]="profile"></profile>
   </ng-container>
 </ng-container>
 
 <div *ngIf="resume.work" class="work-section">
-  <app-work *ngFor="let work of resume.work" [work]="work"></app-work>
+  <work *ngFor="let work of resume.work" [work]="work"></work>
 </div>
 
 <div *ngIf="resume.volunteer" class="volunteer-section">
-  <app-volunteer *ngFor="let volunteer of resume.volunteer" [volunteer]="volunteer"></app-volunteer>
+  <volunteer *ngFor="let volunteer of resume.volunteer" [volunteer]="volunteer"></volunteer>
 </div>
 
 <div *ngIf="resume.education" class="education-section">
-  <app-education *ngFor="let education of resume.education" [education]="education"></app-education>
+  <education *ngFor="let education of resume.education" [education]="education"></education>
 </div>
 
 <div *ngIf="resume.awards" class="award-section">

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Location } from 'src/app/json-resume/json-resume';
 
 @Component({
-  selector: 'app-location',
+  selector: 'location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss']
 })

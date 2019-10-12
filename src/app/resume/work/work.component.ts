@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Work } from 'src/app/json-resume/json-resume';
 
 @Component({
-  selector: 'app-work',
+  selector: 'work',
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss']
 })

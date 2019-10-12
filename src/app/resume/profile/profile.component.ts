@@ -3,7 +3,7 @@ import { Profile } from 'src/app/json-resume/json-resume';
 import { stringify } from '@angular/compiler/src/util';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Volunteer } from 'src/app/json-resume/json-resume';
 
 @Component({
-  selector: 'app-volunteer',
+  selector: 'volunteer',
   templateUrl: './volunteer.component.html',
   styleUrls: ['./volunteer.component.scss']
 })
