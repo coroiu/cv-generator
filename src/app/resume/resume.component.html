@@ -27,3 +27,7 @@
 <div *ngIf="resume.publications" class="publication-section">
   <publication *ngFor="let publication of resume.publications" [publication]="publication"></publication>
 </div>
+
+<div *ngIf="resume.skills" class="skill-section">
+  <skill *ngFor="let skill of resume.skills" [skill]="skill"></skill>
+</div>

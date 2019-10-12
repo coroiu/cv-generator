@@ -1,0 +1,5 @@
+<div *ngIf="skill.name" class="name"></div>
+<div *ngIf="skill.level" [ngClass]="levelClasses"></div>
+<div *ngIf="skill.keywords" class="keywords">
+  <div *ngFor="let keyword of skill.keywords" class="keyword">{{keyword}}</div>
+</div>
