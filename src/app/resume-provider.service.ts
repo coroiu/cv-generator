@@ -8,7 +8,7 @@ import example from './example.json';
   providedIn: 'root'
 })
 export class ResumeProviderService {
-  resume$: Observable<JsonResume> = of(example);
+  resume$: Observable<JsonResume> = of(example as any);
 
   constructor() { }
 }

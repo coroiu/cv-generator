@@ -1,11 +1,11 @@
 <div class="position">{{volunteer.position}}</div>
 
-<ng-container *ngIf="volunteer.website">
-  <a [href]="volunteer.website" class="organization-link">
+<ng-container *ngIf="volunteer.url">
+  <a [href]="volunteer.url" class="organization-link">
     <div class="organization">{{volunteer.organization}}</div>
   </a>
 </ng-container>
-<ng-container *ngIf="!volunteer.website">
+<ng-container *ngIf="!volunteer.url">
   <div class="organization">{{volunteer.organization}}</div>
 </ng-container>
 

@@ -14,7 +14,7 @@ export interface Basics {
   picture?: string;
   email?: string;
   phone?: string;
-  website?: string;
+  url?: string;
   summary?: string;
   location?: Location;
   profiles?: Profile[];
@@ -37,7 +37,7 @@ export interface Profile {
 export interface Work {
   company?: string;
   position?: string;
-  website?: string;
+  url?: string;
   startDate?: string;
   endDate?: string;
   summary?: string;
@@ -47,7 +47,7 @@ export interface Work {
 export interface Volunteer {
   organization?: string;
   position?: string;
-  website?: string;
+  url?: string;
   startDate?: string;
   endDate?: string;
   summary?: string;
@@ -75,7 +75,7 @@ export interface Publication {
   name?: string;
   publisher?: string;
   releaseDate?: string;
-  website?: string;
+  url?: string;
   summary?: string;
 }
 
