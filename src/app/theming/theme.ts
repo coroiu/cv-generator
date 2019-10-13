@@ -1,10 +1,10 @@
 export interface Theme {
   styleUrl?: string;
   style?: string;
-  sections: Section[];
+  sections: Sections;
 }
 
-export interface Section {
+export interface Sections {
   [section: string]: Element[];
 }
 

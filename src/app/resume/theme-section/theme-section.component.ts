@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 @Component({
   selector: 'theme-section',
@@ -7,15 +7,16 @@ import { Component, OnInit, HostBinding, Input } from '@angular/core';
 })
 export class ThemeSectionComponent implements OnInit {
   @Input() name = '';
-
   @HostBinding('class')
   get classes() {
     return this.name;
   }
 
-  constructor() { }
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) { }
 
   ngOnInit() {
   }
-
 }

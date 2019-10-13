@@ -45,6 +45,23 @@ const gravatarConfig = {
     ProjectComponent,
     ThemeSectionComponent
   ],
+  entryComponents: [
+    AvatarComponent,
+    ResumeComponent,
+    LocationComponent,
+    ProfileComponent,
+    WorkComponent,
+    VolunteerComponent,
+    EducationComponent,
+    AwardComponent,
+    PublicationComponent,
+    SkillComponent,
+    LanguageComponent,
+    InterestComponent,
+    ReferenceComponent,
+    ProjectComponent,
+    ThemeSectionComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
