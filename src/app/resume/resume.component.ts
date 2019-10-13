@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ViewContainerRef, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { JsonResume } from '../json-resume/json-resume';
 import { Theme, Sections } from '../theming/theme';
-import { ComponentFactoryResolverService } from './component-factory-resolver.service';
 import { ThemeSectionComponent } from './theme-section/theme-section.component';
 
 @Component({
@@ -14,7 +13,7 @@ export class ResumeComponent implements OnInit {
   @ViewChild('themeHost', { read: ViewContainerRef, static: false }) viewContainerRef: ViewContainerRef;
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolverService
+    private componentFactoryResolver: ComponentFactoryResolver
   ) { }
 
   ngOnInit() {
@@ -26,10 +25,13 @@ export class ResumeComponent implements OnInit {
 
     if (this.viewContainerRef) {
       this.viewContainerRef.clear();
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ThemeSectionComponent);
       for (const [name, section] of Object.entries(value)) {
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(name);
         const componentRef = this.viewContainerRef.createComponent(componentFactory);
+        const instance = componentRef.instance as ThemeSectionComponent;
+        instance.name = name;
         (componentRef.instance as ThemeSectionComponent).name = name;
+        (componentRef.instance as ThemeSectionComponent).resume = this.resume;
       }
     }
   }
