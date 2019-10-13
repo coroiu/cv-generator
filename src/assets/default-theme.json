@@ -1,0 +1,9 @@
+{
+  "styleUrl": "assets/default-theme.less",
+  "sections": {
+    "header": [],
+    "main": [],
+    "sidebar": [],
+    "footer": []
+  }
+}

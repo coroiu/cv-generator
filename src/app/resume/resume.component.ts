@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JsonResume } from '../json-resume/json-resume';
+import { Theme } from '../theming/theme';
 
 @Component({
   selector: 'resume',
@@ -8,18 +9,14 @@ import { JsonResume } from '../json-resume/json-resume';
 })
 export class ResumeComponent implements OnInit {
   @Input() resume: JsonResume;
-  @Input() themeElements = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  get elementClasses() {
-    const arr = [];
-    for (let i = 0; i < this.themeElements; ++i) {
-      arr.push(`theme-element theme-element-${i}`);
-    }
-    return arr;
+  @Input()
+  set theme(value: Theme) {
+    console.log(value);
   }
 }

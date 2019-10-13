@@ -3,7 +3,7 @@ import { ResumeProviderService } from './resume-provider.service';
 import { Observable, of, Subscription } from 'rxjs';
 import { JsonResume } from './json-resume/json-resume';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ThemeProviderService } from './theme-provider.service';
+import { ThemeProviderService } from './theming/theme-provider.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ import { ThemeProviderService } from './theme-provider.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   resume: Observable<JsonResume>;
-  styleSubscription: Subscription;
+  themeSubscription: Subscription;
   themeElements = 0;
 
   constructor(
@@ -22,17 +22,17 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.resume = this.resumeProvider.resume$;
-    this.styleSubscription = this.themeProvider.style$.subscribe(v => {
-      document.head.querySelector('#dynamic-theme').innerHTML = v;
+    this.themeSubscription = this.themeProvider.theme$.subscribe(t => {
+      document.head.querySelector('#dynamic-theme').innerHTML = t.style;
 
-      const e = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--theme-elements'), 10);
-      if (e) {
-        this.themeElements = e;
-      }
+      // const e = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--theme-elements'), 10);
+      // if (e) {
+      //   this.themeElements = e;
+      // }
     });
   }
 
   ngOnDestroy() {
-    this.styleSubscription.unsubscribe();
+    this.themeSubscription.unsubscribe();
   }
 }
