@@ -22,12 +22,4 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  get iconClasses() {
-    const classes = ['icon'];
-    if (this.profile.network) {
-      classes.push(this.profile.network.toLowerCase());
-    }
-    return classes;
-  }
 }

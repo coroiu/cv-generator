@@ -28,6 +28,16 @@
         "network": "Github",
         "username": "john",
         "url": "http://twitter.com/john"
+      },
+      {
+        "network": "Stack Overflow",
+        "username": "john",
+        "url": "http://twitter.com/john"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "john",
+        "url": "http://twitter.com/john"
       }
     ]
   },
