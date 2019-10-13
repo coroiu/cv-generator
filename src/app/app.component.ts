@@ -4,6 +4,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { JsonResume } from './json-resume/json-resume';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ThemeProviderService } from './theming/theme-provider.service';
+import { Theme, Section } from './theming/theme';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { ThemeProviderService } from './theming/theme-provider.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  resume: Observable<JsonResume>;
+  resume$: Observable<JsonResume>;
+  sections: Section[] = [];
   themeSubscription: Subscription;
   themeElements = 0;
 
@@ -21,10 +23,10 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.resume = this.resumeProvider.resume$;
+    this.resume$ = this.resumeProvider.resume$;
     this.themeSubscription = this.themeProvider.theme$.subscribe(t => {
       document.head.querySelector('#dynamic-theme').innerHTML = t.style;
-
+      this.sections = t.sections;
       // const e = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--theme-elements'), 10);
       // if (e) {
       //   this.themeElements = e;

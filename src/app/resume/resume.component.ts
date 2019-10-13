@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JsonResume } from '../json-resume/json-resume';
-import { Theme } from '../theming/theme';
+import { Theme, Section } from '../theming/theme';
 
 @Component({
   selector: 'resume',
@@ -15,8 +15,8 @@ export class ResumeComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Input()
-  set theme(value: Theme) {
+  @Input('sections')
+  set sections(value: Section[]) {
     console.log(value);
   }
 }
