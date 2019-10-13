@@ -1,8 +1,15 @@
 {
   "styleUrl": "assets/default-theme.less",
   "sections": {
-    "header": ["basics"],
-    "main": ["work"],
+    "header": [
+      "basics"
+    ],
+    "avatar": [
+      "basics"
+    ],
+    "main": [
+      "work"
+    ],
     "sidebar": [],
     "footer": []
   }

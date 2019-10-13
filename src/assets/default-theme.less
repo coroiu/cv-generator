@@ -16,48 +16,71 @@ body {
 @media screen and (min-width: 210mm) {
   resume {
     display: grid;
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 50mm;
     grid-template-rows: auto;
     grid-template-areas: 
       "header avatar"
       "main sidebar"
       "footer footer";
-    
-    .theme-element-0 {
+
+    theme-section.header {
       grid-area: header;
       background: #colors[primary];
+
+      resume-section.basics {
+        .email, .phone, .summary, .avatar, location, avatar {
+          display: none;
+        }
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        .name {
+          font-size: 25pt;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 1mm;
+          border: 1mm solid black;
+          padding: 5mm 10mm 7mm 10mm;
+          text-align: center;
+        }
+
+        .label {
+          font-size: 20pt;
+          background: #colors[primary];
+          margin-top: -4.5mm;
+          padding: 0 5mm;
+        }
+
+        .profiles { 
+          display: flex;
+          justify-content: center;
+          width: 100%;
+
+          profile {
+            margin: 5mm 5mm 0 5mm;
+          }
+        }
+      }
     }
 
-    .me {
-      grid-area: header;
-      padding: 15mm 15mm 10mm 15mm;
-      text-align: center;
-
-      .name {
-        font-size: 25pt;
-        font-weight: bold;
-        text-transform: uppercase;
-        padding: 5mm 5mm 7mm 5mm;
-        border: 1mm solid black;
-        letter-spacing: 1mm;
-      }
-
-      .label {
-        position: relative;
-        font-size: 20pt;
-        background: #colors[primary];
-        display: inline-block;
-        top: -4.5mm;
-        padding: 0 7mm;
-      }
-    }
-
-    avatar {
+    theme-section.avatar {
       grid-area: avatar;
-      
-      img[style] {
-        width: 100% !important;
-        height: auto !important;
+
+      resume-section.basics {
+        .name, .label, .email, .phone, .summary, .avatar, location, profile {
+          display: none;
+        }
+  
+        avatar {
+          img[style] {
+            width: 100% !important;
+            height: auto !important;
+          }
+        }
       }
     }
   }

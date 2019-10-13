@@ -16,6 +16,16 @@
     "profiles": [
       {
         "network": "Twitter",
+        "username": "@john",
+        "url": "http://twitter.com/john"
+      },
+      {
+        "network": "Facebook",
+        "username": "John Doe",
+        "url": "http://twitter.com/john"
+      },
+      {
+        "network": "Github",
         "username": "john",
         "url": "http://twitter.com/john"
       }
