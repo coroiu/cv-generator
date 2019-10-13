@@ -1,4 +1,15 @@
+<div *ngFor="let classes of elementClasses" [ngClass]="classes"></div>
+
 <ng-container *ngIf="resume.basics">
+  <div class="me">
+    <div class="name">{{resume.basics.name}}</div>
+    <div class="label">{{resume.basics.label}}</div>
+  </div>
+
+  <div class="email">{{resume.basics.email}}</div>
+  <div class="phone">{{resume.basics.phone}}</div>
+  <div class="summary">{{resume.basics.summary}}</div>
+
   <avatar *ngIf="resume.basics" [email]="resume.basics.email" [picture]="resume.basics.picture"></avatar>
 
   <location *ngIf="resume.basics.location" [location]="resume.basics.location"></location>

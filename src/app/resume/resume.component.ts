@@ -8,10 +8,18 @@ import { JsonResume } from '../json-resume/json-resume';
 })
 export class ResumeComponent implements OnInit {
   @Input() resume: JsonResume;
+  @Input() themeElements = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  get elementClasses() {
+    const arr = [];
+    for (let i = 0; i < this.themeElements; ++i) {
+      arr.push(`theme-element theme-element-${i}`);
+    }
+    return arr;
+  }
 }

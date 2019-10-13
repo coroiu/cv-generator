@@ -13,6 +13,7 @@ import { ThemeProviderService } from './theme-provider.service';
 export class AppComponent implements OnInit, OnDestroy {
   resume: Observable<JsonResume>;
   styleSubscription: Subscription;
+  themeElements = 0;
 
   constructor(
     private resumeProvider: ResumeProviderService,
@@ -23,6 +24,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.resume = this.resumeProvider.resume$;
     this.styleSubscription = this.themeProvider.style$.subscribe(v => {
       document.head.querySelector('#dynamic-theme').innerHTML = v;
+
+      const e = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--theme-elements'), 10);
+      if (e) {
+        this.themeElements = e;
+      }
     });
   }
 

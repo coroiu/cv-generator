@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+  --theme-template:;
+  --theme-elements: 2;
+}
+
+#colors() {
+  primary: #fdc78a;
+  secondary: #2c3441;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media screen and (min-width: 210mm) {
+  resume {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header avatar"
+      "main sidebar"
+      "footer footer";
+    
+    .theme-element-0 {
+      grid-area: header;
+      background: #colors[primary];
+    }
+
+    .me {
+      grid-area: header;
+      padding: 15mm 15mm 10mm 15mm;
+      text-align: center;
+
+      .name {
+        font-size: 25pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 5mm 5mm 7mm 5mm;
+        border: 1mm solid black;
+        letter-spacing: 1mm;
+      }
+
+      .label {
+        position: relative;
+        font-size: 20pt;
+        background: #colors[primary];
+        display: inline-block;
+        top: -4.5mm;
+        padding: 0 7mm;
+      }
+    }
+
+    avatar {
+      grid-area: avatar;
+      
+      img[style] {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+  }
+}
