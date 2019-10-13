@@ -4,7 +4,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { JsonResume } from './json-resume/json-resume';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ThemeProviderService } from './theming/theme-provider.service';
-import { Theme, Sections } from './theming/theme';
+import { Theme, ThemeSections } from './theming/theme';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import { Theme, Sections } from './theming/theme';
 })
 export class AppComponent implements OnInit, OnDestroy {
   resume$: Observable<JsonResume>;
-  sections: Sections = {};
+  sections: ThemeSections = {};
   themeSubscription: Subscription;
   themeElements = 0;
 

@@ -1,22 +1,13 @@
+import { JsonResume } from '../json-resume/json-resume';
+
 export interface Theme {
   styleUrl?: string;
   style?: string;
-  sections: Sections;
+  sections: ThemeSections;
 }
 
-export interface Sections {
-  [section: string]: Element[];
+export interface ThemeSections {
+  [section: string]: ResumeSection[];
 }
 
-export type Element = 'basics' |
-  'work' |
-  'volunteer' |
-  'education' |
-  'awards' |
-  'publications' |
-  'skills' |
-  'languages' |
-  'interests' |
-  'references' |
-  'projects' |
-  string;
+export type ResumeSection = keyof JsonResume;

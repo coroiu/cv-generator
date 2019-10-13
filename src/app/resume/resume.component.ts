@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewContainerRef, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { JsonResume } from '../json-resume/json-resume';
-import { Theme, Sections } from '../theming/theme';
+import { Theme, ThemeSections } from '../theming/theme';
 import { ThemeSectionComponent } from './theme-section/theme-section.component';
 
 @Component({
@@ -20,18 +20,18 @@ export class ResumeComponent implements OnInit {
   }
 
   @Input('sections')
-  set sections(value: Sections) {
+  set sections(value: ThemeSections) {
     console.log(value);
 
     if (this.viewContainerRef) {
       this.viewContainerRef.clear();
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ThemeSectionComponent);
-      for (const [name, section] of Object.entries(value)) {
+      for (const [name, sections] of Object.entries(value)) {
         const componentRef = this.viewContainerRef.createComponent(componentFactory);
         const instance = componentRef.instance as ThemeSectionComponent;
         instance.name = name;
-        (componentRef.instance as ThemeSectionComponent).name = name;
-        (componentRef.instance as ThemeSectionComponent).resume = this.resume;
+        instance.sections = sections;
+        instance.resume = this.resume;
       }
     }
   }

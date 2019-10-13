@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding, Input, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { SectionComponent } from '../section-component';
 import { JsonResume } from 'src/app/json-resume/json-resume';
+import { ResumeSection } from 'src/app/theming/theme';
 
 @Component({
   selector: 'theme-section',
@@ -10,6 +11,7 @@ import { JsonResume } from 'src/app/json-resume/json-resume';
 export class ThemeSectionComponent implements OnInit {
   resume: JsonResume;
 
+  @Input() sections: ResumeSection[] = [];
   @Input() name = '';
   @HostBinding('class')
   get classes() {

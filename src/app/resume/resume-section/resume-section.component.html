@@ -1,1 +1,58 @@
-<p>resume-section works!</p>
+<ng-container *ngIf="name === 'basics' && resume.basics">
+  <div class="me">
+    <div class="name">{{resume.basics.name}}</div>
+    <div class="label">{{resume.basics.label}}</div>
+  </div>
+  
+  <div class="email">{{resume.basics.email}}</div>
+  <div class="phone">{{resume.basics.phone}}</div>
+  <div class="summary">{{resume.basics.summary}}</div>
+  
+  <avatar *ngIf="resume.basics" [email]="resume.basics.email" [picture]="resume.basics.picture"></avatar>
+  
+  <location *ngIf="resume.basics.location" [location]="resume.basics.location"></location>
+  
+  <ng-container *ngIf="resume.basics.profiles">
+    <profile *ngFor="let profile of resume.basics.profiles" [profile]="profile"></profile>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="name === 'work' && resume.work" class="work-section">
+  <work *ngFor="let work of resume.work" [work]="work"></work>
+</ng-container>
+
+<ng-container *ngIf="name === 'volunteer' && resume.volunteer" class="volunteer-section">
+  <volunteer *ngFor="let volunteer of resume.volunteer" [volunteer]="volunteer"></volunteer>
+</ng-container>
+
+<ng-container *ngIf="name === 'education' && resume.education" class="education-section">
+  <education *ngFor="let education of resume.education" [education]="education"></education>
+</ng-container>
+
+<ng-container *ngIf="name === 'awards' && resume.awards" class="award-section">
+  <award *ngFor="let award of resume.awards" [award]="award"></award>
+</ng-container>
+
+<ng-container *ngIf="name === 'publications' && resume.publications" class="publication-section">
+  <publication *ngFor="let publication of resume.publications" [publication]="publication"></publication>
+</ng-container>
+
+<ng-container *ngIf="name === 'skills' && resume.skills" class="skill-section">
+  <skill *ngFor="let skill of resume.skills" [skill]="skill"></skill>
+</ng-container>
+
+<ng-container *ngIf="name === 'languages' && resume.languages" class="language-section">
+  <language *ngFor="let language of resume.languages" [language]="language"></language>
+</ng-container>
+
+<ng-container *ngIf="name === 'interests' && resume.interests" class="interest-section">
+  <interest *ngFor="let interest of resume.interests" [interest]="interest"></interest>
+</ng-container>
+
+<ng-container *ngIf="name === 'references' && resume.references" class="reference-section">
+  <reference *ngFor="let reference of resume.references" [reference]="reference"></reference>
+</ng-container>
+
+<ng-container *ngIf="name === 'projects' && resume.projects" class="project-section">
+  <project *ngFor="let project of resume.projects" [project]="project"></project>
+</ng-container>
