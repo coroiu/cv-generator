@@ -15,7 +15,7 @@
 
 #font-sizes() {
   h1: 1.5rem;
-  h2: 1.25rem;
+  h2: 1.1rem;
   h3: 0.85rem;
   h4: 0.7rem;
 }
@@ -207,6 +207,130 @@ a {
           }
         }
       }
+    }
+
+    theme-section.main {
+      grid-area: main;
+      padding: 10mm;
+
+      resume-section { 
+        display: block;
+        margin-bottom: 10mm;
+
+        .section-header {
+          .h2();
+          @color: #colors[secondary];
+          display: block;
+          position: relative;
+          text-transform: uppercase;
+          border-bottom: @color 2px solid;
+          padding-bottom: 0.25em;
+          margin: 0 0 4mm 12mm;
+  
+          &::before {
+            position: absolute;
+            left: -12mm;
+            top: -0.4em;
+            padding: 0.4em;
+            background: #colors[secondary];
+            color: #colors[white];
+            border-radius: 50%;
+          }  
+        }
+      }
+
+      resume-section.basics {
+        .section-header { 
+          &::before {
+            .icon("\ecef");
+          }
+
+          &::after {
+            content: "About me";
+          }
+        }
+
+        .name, .label, .email, .phone, avatar, location, profile {
+          display: none;
+        }
+      }
+
+      resume-section.work {
+        .section-header { 
+          &::before {
+            .icon("\eec2");
+          }
+
+          &::after {
+            content: "Experiences";
+          }
+        }
+      }
+
+      resume-section.volunteer {
+        .section-header { 
+          &::before {
+            .icon("\efc2");
+          }
+
+          &::after {
+            content: "Volunteer";
+          }
+        }
+      }
+      
+      
+      resume-section.education {
+        .section-header { 
+          &::before {
+            .icon("\eade");
+          }
+
+          &::after {
+            content: "Education";
+          }
+        }
+      }
+      
+      
+      resume-section.awards {
+        .section-header { 
+          &::before {
+            .icon("\eace");
+          }
+
+          &::after {
+            content: "Awards";
+          }
+        }
+      }
+      
+      
+      resume-section.publications {
+        .section-header { 
+          &::before {
+            .icon("\eae5");
+          }
+
+          &::after {
+            content: "Publications";
+          }
+        }
+      }
+      
+      
+      resume-section.projects {
+        .section-header { 
+          &::before {
+            .icon("\ef36");
+          }
+
+          &::after {
+            content: "Projects";
+          }
+        }
+      }
+    
     }
   }
 }
