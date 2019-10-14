@@ -8,7 +8,7 @@
   primary: #343338;
   secondary: #008cc9;
   black: #333133;
-  white: #ffffff;
+  white: #f5f5f5;
   inverted: #f3f2f6;
   // inverted-background: #343338;
 }
@@ -31,6 +31,11 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.7rem;
   color: #colors[black];
+}
+
+.sheet {
+  @c: #colors[white];
+  background: @c !important;
 }
 
 a {

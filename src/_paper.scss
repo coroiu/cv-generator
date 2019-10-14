@@ -14,7 +14,6 @@ body {
 
   .sheet {
     margin: 0;
-    overflow: hidden;
     position: relative;
     box-sizing: border-box;
     page-break-after: always;
@@ -22,12 +21,45 @@ body {
     @media print {
       width: 210mm; 
       height: 296mm;
+      overflow: hidden;
     }
 
     @media screen {
+      $shadow-color: lighten(#000000, 15%);
       background: white;
-      box-shadow: 0 .5mm 2mm rgba(0,0,0,.5);
+      box-shadow: 0 1mm 4mm $shadow-color;
       margin: 5mm auto;
+      position: relative;
+
+      // &::before, &::after {
+      //   z-index: -1;
+      //   position: absolute;
+      //   content: "";
+      //   bottom: 15px;
+      //   left: 10px;
+      //   width: 50%;
+      //   top: 80%;
+      //   background: $shadow-color;
+      //   -webkit-box-shadow: 0 15px 10px $shadow-color;
+      //   -moz-box-shadow: 0 15px 10px $shadow-color;
+      //   box-shadow: 0 15px 10px $shadow-color;
+      //   -webkit-transform: rotate(-3deg);
+      //   -moz-transform: rotate(-3deg);
+      //   -o-transform: rotate(-3deg);
+      //   -ms-transform: rotate(-3deg);
+      //   transform: rotate(-3deg);
+      // }
+
+      // &::after {
+      //   content: "";
+      //   -webkit-transform: rotate(3deg);
+      //   -moz-transform: rotate(3deg);
+      //   -o-transform: rotate(3deg);
+      //   -ms-transform: rotate(3deg);
+      //   transform: rotate(3deg);
+      //   right: 10px;
+      //   left: auto;
+      // }
     }
 
     @media screen and (min-width: 210mm) {
