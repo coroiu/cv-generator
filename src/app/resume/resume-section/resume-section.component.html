@@ -1,12 +1,12 @@
 <ng-container *ngIf="name === 'basics' && resume.basics">
   <div class="name">{{resume.basics.name}}</div>
-  <div class="label">{{resume.basics.label}}</div>
+  <div *ngIf="resume.basics.label" class="label">{{resume.basics.label}}</div>
   
-  <div class="email">{{resume.basics.email}}</div>
-  <div class="phone">{{resume.basics.phone}}</div>
-  <div class="summary">{{resume.basics.summary}}</div>
+  <a *ngIf="resume.basics.email" class="email" [href]="'mailto:' + resume.basics.email">{{resume.basics.email}}</a>
+  <a *ngIf="resume.basics.phone" class="phone" [href]="'tel:' + resume.basics.phone">{{resume.basics.phone}}</a>
+  <div *ngIf="resume.basics.summary" class="summary">{{resume.basics.summary}}</div>
   
-  <avatar *ngIf="resume.basics" [email]="resume.basics.email" [picture]="resume.basics.picture"></avatar>
+  <avatar *ngIf="resume.basics.email || resume.basics.picture" [email]="resume.basics.email" [picture]="resume.basics.picture"></avatar>
   
   <location *ngIf="resume.basics.location" [location]="resume.basics.location"></location>
   
