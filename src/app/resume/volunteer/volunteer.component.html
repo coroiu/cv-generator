@@ -1,13 +1,13 @@
-<div class="position">{{volunteer.position}}</div>
-
 <ng-container *ngIf="volunteer.url">
-  <a [href]="volunteer.url" class="organization-link">
-    <div class="organization">{{volunteer.organization}}</div>
+  <a [href]="volunteer.url" class="organization">
+    <div>{{volunteer.organization}}</div>
   </a>
 </ng-container>
 <ng-container *ngIf="!volunteer.url">
   <div class="organization">{{volunteer.organization}}</div>
 </ng-container>
+
+<div class="position">{{volunteer.position}}</div>
 
 <div class="summary">{{volunteer.summary}}</div>
 <div class="duration">

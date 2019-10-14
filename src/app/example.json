@@ -68,14 +68,47 @@
   ],
   "volunteer": [
     {
-      "organization": "Organization",
+      "organization": "Cillum",
       "position": "Volunteer",
       "url": "http://organization.com/",
-      "startDate": "2012-01-01",
-      "endDate": "2013-01-01",
-      "summary": "Description...",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "Qui est quis labore ut labore aute ex ullamco.",
       "highlights": [
-        "Awarded 'Volunteer of the Month'"
+        "Proident sit consequat minim."
+      ]
+    },
+    {
+      "organization": "Deserunt",
+      "position": "Volunteer",
+      "url": "http://organization.com/",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "Veniam sit veniam adipisicing in ut irure aliquip in eiusmod ea officia non.",
+      "highlights": [
+        "Laborum occaecat fugiat commodo minim."
+      ]
+    },
+    {
+      "organization": "Dolor",
+      "position": "Volunteer",
+      "url": "http://organization.com/",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "Laborum pariatur esse in commodo exercitation aliqua et ullamco qui quis aliqua.",
+      "highlights": [
+        "Enim quis dolore est."
+      ]
+    },
+    {
+      "organization": "Magna",
+      "position": "Volunteer",
+      "url": "http://organization.com/",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "In pariatur qui aliqua deserunt pariatur.",
+      "highlights": [
+        "Esse mollit."
       ]
     }
   ],
