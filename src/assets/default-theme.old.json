@@ -1,7 +1,10 @@
 {
   "styleUrl": "assets/default-theme.less",
   "sections": {
-    "sidebar": [
+    "header": [
+      "basics"
+    ],
+    "avatar": [
       "basics"
     ],
     "main": [
@@ -11,6 +14,8 @@
       "awards",
       "publications",
       "projects"
-    ]
+    ],
+    "sidebar": [],
+    "footer": []
   }
 }

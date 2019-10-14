@@ -5,19 +5,23 @@
 }
 
 #colors() {
-  primary: #fdc78a;
-  secondary: #2c3441;
+  primary: #343338;
+  secondary: #008cc9;
   black: #333133;
   white: #ffffff;
+  inverted: #f3f2f6;
+  // inverted-background: #343338;
 }
 
 #font-sizes() {
-  h1: 25pt;
+  h1: 1.5rem;
   h2: 1.25rem;
   h3: 0.85rem;
+  h4: 0.7rem;
 }
 
 @body-text-line-height: 1.5;
+@sidebar-padding: 5mm;
 
 * {
   box-sizing: border-box;
@@ -68,207 +72,137 @@ a {
   margin-bottom: 0.6375rem;
 }
 
+.icon(@icon) {
+  font-family: "icofont";
+  margin-right: 0.25em;
+  display: inline-block;
+  content: @icon;
+}
+
 @media print, screen and (min-width: 210mm) {
   resume {
     display: grid;
-    grid-template-columns: 1fr 50mm;
+    grid-template-columns: 60mm 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
-      "header avatar"
-      "main sidebar"
-      "footer footer";
+      "sidebar main";
 
-    theme-section.header {
-      grid-area: header;
+    theme-section.sidebar {
+      grid-area: sidebar;
       background: #colors[primary];
+      color: #colors[inverted];
+      padding: 0 @sidebar-padding;
 
       resume-section.basics {
-        .email, .phone, .summary, .avatar, location, avatar {
-          display: none;
-        }
+        display: grid;
 
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
+        a {
+          @c: #colors[inverted];
+          color: @c;
 
-        .name {
-          .h1();
-          text-transform: uppercase;
-          letter-spacing: 1mm;
-          border: 0.75mm solid #colors[black];
-          padding: 5mm 10mm 7mm 10mm;
-          text-align: center;
-        }
-
-        .label {
-          font-size: 20pt;
-          background: #colors[primary];
-          margin-top: -4.5mm;
-          padding: 0 5mm;
-        }
-
-        .profiles { 
-          display: flex;
-          flex-wrap: wrap;
-          flex: 0 0 auto;
-          justify-content: center;
-          width: 100%;
-
-          profile {
-            margin: 5mm 5mm 0 5mm;
-            
-            a::before {
-              font-family: "icofont";
-              margin-right: 0.25em;
-              display: inline-block;
-            }
-
-            a:hover div, a:active div {
-              text-decoration: underline;
-            }
-
-            &.linkedin a::before {
-              content: "\ed4d";
-            }
-
-            .username {
-              display: inline-block;
-            }
+          &:hover, &:active {
+            color: darken(@c, 15%);
+            text-decoration: none;
           }
         }
-      }
-    }
 
-    theme-section.avatar {
-      grid-area: avatar;
-
-      resume-section.basics {
-        .name, .label, .email, .phone, .summary, .avatar, location, profile {
-          display: none;
-        }
-  
         avatar {
+          position: relative;
+          grid-row: 1;
+          margin: 0 -@sidebar-padding;
           img[style] {
             width: 100% !important;
             height: auto !important;
           }
         }
-      }
-    }
 
-    theme-section.main {
-      grid-area: main;
-
-      resume-section.work {
-        display: block;
-        position: relative;
-        margin: 10mm 12mm;
-        border-top: 0.5mm solid #colors[black];
-
-        &::before {
+        .sidebar-header {
           .h2();
-          display: block;
-          content: "Experiences";
-          position: absolute;
-          padding: 2mm 3mm;
-          border: 0.5mm solid #colors[black];
-          transform: translate(0, -50%);
-          background: #colors[white];
+          @color: #colors[secondary];
+          text-transform: uppercase;
+          border-bottom: @color 2px solid;
+          padding-bottom: 2mm;
+          margin-bottom: 4mm;
         }
 
-        work {
-          @line-color: #6d6f71;
-          @line-width: 3px;
-          @line-margin-left: 10mm;
-          @line-margin-right: 5mm;
-          display: grid; 
-          grid-template-columns: auto @line-width 1fr;
-          grid-template-areas: 
-            "duration line company"
-            "   .     line position"
-            "   .     line summary"
-            "   .     line highlights";
+        .name {
+          .h1();
+          grid-row: 2;
+          text-align: center;
+          text-transform: uppercase;
+          margin-top: 1em;
+          line-height: 1.1;
+        }
 
-          &:first-of-type {
-            @f: #font-sizes[h2];
-            margin-top: @f/2 + 1.5mm;
-          }
-          
-          .duration {
-            grid-area: duration;
-            margin-right: @line-margin-left;
-            font-size: #font-sizes[h3];
+        .label {
+          grid-row: 3;
+          text-align: center;
+          margin-top: 0.75em;
+          color: #colors[secondary];
+        }
 
-            .start-date {
-              display: inline-block;
-            }
+        &::before {
+          .sidebar-header();
+          grid-row: 4;
+          content: "Contact";
+          margin-top: 5mm;
+        }
 
-            .end-date {
-              display: inline-block;
+        .summary {
+          display: none;
+        }
 
-              &::before {
-                display: inline-block;
-                content: '-';
-                margin: 0 0.25em;
-              }
-            }
-          }
+        location {
+          .p();
+          grid-row: 5;
+        }
+
+        .contact-entry(@icon) {
+          .p();
+          display: flex;
+          align-items: center;
 
           &::before {
-            display: block;
-            content: "";
-            grid-area: line;
-            background: @line-color;
-            margin-top: 2px;
+            font-size: 1.5rem;
+            .icon(@icon);
+            margin-right: 0.5em;
           }
+        }
 
-          &::after {
-            @radius: 6px;
-            display: block;
-            content: "";
-            grid-area: line;
-            box-sizing: border-box;
-            top: 0;
-            width: @radius * 2;
-            height: @radius * 2;
-            border-radius: @radius;
-            margin-left: -@radius + @line-width/2;
-            border: 2px solid @line-color;
-            background: #colors[white];
-          }
+        .email {
+          grid-row: 6;
+          .contact-entry("\ef12");
+        }
 
-          .company {
-            .h3();
-            grid-area: company;
-            margin-left: @line-margin-right;
-          }
+        .phone {
+          grid-row: 7;
+          .contact-entry("\efec");
+        }
 
-          .position {
-            .h3();
-            grid-area: position;
-            margin-left: @line-margin-right;
-          }
+        .profiles {
+          profile {
+            a {
+              .contact-entry("\ef71");
+            }
 
-          .summary {
-            .p();
-            grid-area: summary;
-            margin-left: @line-margin-right;
-            line-height: @body-text-line-height;
-          }
+            &.twitter a {
+              .contact-entry("\ed7a");
+            }
 
-          .highlights {
-            .p();
-            grid-area: highlights;
-            margin-left: @line-margin-right;
-            line-height: @body-text-line-height;
+            &.facebook a {
+              .contact-entry("\ed37");
+            }
 
-            .highlight {
-              &::before {
-                content: "•";
-                margin-right: 0.75em;
-              }
+            &.github a {
+              .contact-entry("\ed3e");
+            }
+
+            &.stack-overflow a {
+              .contact-entry("\ed70");
+            }
+
+            &.linkedin a {
+              .contact-entry("\ed4d");
             }
           }
         }
