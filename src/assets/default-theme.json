@@ -8,7 +8,12 @@
       "basics"
     ],
     "main": [
-      "work"
+      "work",
+      "volunteer",
+      "education",
+      "awards",
+      "publications",
+      "projects"
     ],
     "sidebar": [],
     "footer": []
