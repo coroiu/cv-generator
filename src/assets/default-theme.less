@@ -8,10 +8,22 @@
   primary: #fdc78a;
   secondary: #2c3441;
   black: #333133;
+  white: #ffffff;
+}
+
+#font-sizes() {
+  h1: 25pt;
+  h2: 1.25rem;
+  h3: 0.85rem;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
+  font-size: 0.8rem;
   color: #colors[black];
 }
 
@@ -24,6 +36,23 @@ a {
     color: darken(@color, 15%);
     text-decoration: underline;
   }
+}
+
+.h1 {
+  font-size: #font-sizes[h1];
+  font-weight: bold;
+}
+
+.h2 {
+  font-size: #font-sizes[h2];
+  font-weight: bold;
+}
+
+.h3 {
+  @f: #font-sizes[h3];
+  font-size: @f;
+  font-weight: bold;
+  margin-bottom: @f * 0.75;
 }
 
 @media print, screen and (min-width: 210mm) {
@@ -52,8 +81,7 @@ a {
         height: 100%;
 
         .name {
-          font-size: 25pt;
-          font-weight: bold;
+          .h1();
           text-transform: uppercase;
           letter-spacing: 1mm;
           border: 0.75mm solid #colors[black];
@@ -78,13 +106,17 @@ a {
           profile {
             margin: 5mm 5mm 0 5mm;
             
-            a:before {
+            a::before {
               font-family: "icofont";
               margin-right: 0.25em;
               display: inline-block;
             }
 
-            &.linkedin a:before {
+            a:hover div, a:active div {
+              text-decoration: underline;
+            }
+
+            &.linkedin a::before {
               content: "\ed4d";
             }
 
@@ -112,5 +144,111 @@ a {
         }
       }
     }
+
+    theme-section.main {
+      grid-area: main;
+
+      resume-section.work {
+        display: block;
+        position: relative;
+        margin: 10mm 12mm;
+        border-top: 0.5mm solid #colors[black];
+
+        &::before {
+          .h2();
+          display: block;
+          content: "Experiences";
+          position: absolute;
+          padding: 2mm 3mm;
+          border: 0.5mm solid #colors[black];
+          transform: translate(0, -50%);
+          background: #colors[white];
+        }
+
+        work {
+          @line-color: #6d6f71;
+          @line-width: 0.7mm;
+          @line-margin-left: 10mm;
+          @line-margin-right: 5mm;
+          display: grid; 
+          margin-top: 1.5mm;
+          grid-template-columns: auto 0.7mm 1fr;
+          grid-template-areas: 
+            "duration line company"
+            "   .     line position"
+            "   .     line summary"
+            "   .     line highlights";
+
+          &:first-of-type {
+            @f: #font-sizes[h2];
+            margin-top: @f/2 + 1.5mm;
+          }
+          
+          .duration {
+            grid-area: duration;
+            margin-right: @line-margin-left;
+
+            .start-date {
+              display: inline-block;
+            }
+
+            .end-date {
+              display: inline-block;
+
+              &::before {
+                display: inline-block;
+                content: '-';
+                margin: 0 0.25em;
+              }
+            }
+          }
+
+          &::before {
+            display: block;
+            content: "";
+            grid-area: line;
+            background: @line-color;
+          }
+
+          &::after {
+            @radius: 1.75mm;
+            display: block;
+            content: "";
+            grid-area: line;
+            box-sizing: border-box;
+            top: 0;
+            width: @radius * 2;
+            height: @radius * 2;
+            border-radius: @radius;
+            margin-left: -@radius + @line-width/2;
+            border: 0.3mm solid @line-color;
+            background: #colors[white];
+          }
+
+          .company {
+            .h3();
+            grid-area: company;
+            margin-left: @line-margin-right;
+          }
+
+          .position {
+            .h3();
+            grid-area: position;
+            margin-left: @line-margin-right;
+          }
+
+          .summary {
+            grid-area: summary;
+            margin-left: @line-margin-right;
+          }
+
+          .highlights {
+            grid-area: highlights;
+            margin-left: @line-margin-right;
+          }
+        }
+      }
+    }
   }
 }
+

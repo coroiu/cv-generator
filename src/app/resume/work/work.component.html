@@ -1,8 +1,8 @@
 <div class="position">{{work.position}}</div>
 
 <ng-container *ngIf="work.url">
-  <a [href]="work.url" class="company-link">
-    <div class="company">{{work.company}}</div>
+  <a [href]="work.url" class="company">
+    <div>{{work.company}}</div>
   </a>
 </ng-container>
 <ng-container *ngIf="!work.url">
