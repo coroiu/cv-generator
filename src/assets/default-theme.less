@@ -167,12 +167,12 @@ a {
 
         work {
           @line-color: #6d6f71;
-          @line-width: 0.7mm;
+          @line-width: 3px;
           @line-margin-left: 10mm;
           @line-margin-right: 5mm;
           display: grid; 
           margin-top: 1.5mm;
-          grid-template-columns: auto 0.7mm 1fr;
+          grid-template-columns: auto @line-width 1fr;
           grid-template-areas: 
             "duration line company"
             "   .     line position"
@@ -208,10 +208,11 @@ a {
             content: "";
             grid-area: line;
             background: @line-color;
+            margin-top: 2px;
           }
 
           &::after {
-            @radius: 1.75mm;
+            @radius: 6px;
             display: block;
             content: "";
             grid-area: line;
@@ -221,7 +222,7 @@ a {
             height: @radius * 2;
             border-radius: @radius;
             margin-left: -@radius + @line-width/2;
-            border: 0.3mm solid @line-color;
+            border: 2px solid @line-color;
             background: #colors[white];
           }
 
