@@ -1,8 +1,10 @@
 <div *ngIf="education.institution" class="institution">{{education.institution}}</div>
 <div *ngIf="education.area" class="area">{{education.area}}</div>
-<div *ngIf="education.studyType" class="studyType">{{education.studyType}}</div>
-<div *ngIf="education.startDate" class="startDate">{{education.startDate}}</div>
-<div *ngIf="education.endDate" class="endDate">{{education.endDate}}</div>
+<div *ngIf="education.studyType" class="study-type">{{education.studyType}}</div>
+<div *ngIf="education.startDate && education.endDate" class="duration">
+  <div *ngIf="education.startDate" class="start-date">{{education.startDate}}</div>
+  <div *ngIf="education.endDate" class="end-date">{{education.endDate}}</div>
+</div>
 <div *ngIf="education.gpa" class="gpa">{{education.gpa}}</div>
 
 <div *ngIf="education.courses" class="courses">

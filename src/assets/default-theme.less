@@ -438,6 +438,89 @@ a {
             content: "Education";
           }
         }
+
+        education {
+          @line-color: #colors[secondary];
+          @line-width: 3px;
+          @line-margin-left: 5mm;
+          @line-margin-right: 5mm;
+          display: grid; 
+          grid-template-columns: auto @line-width 1fr;
+          grid-template-areas: 
+            "institution line area"
+            "study-type  line gpa"
+            "duration    line courses";
+
+          &:first-of-type {
+            @f: #font-sizes[h2];
+            margin-top: @f/2 + 1.5mm;
+          }
+
+          .institution {
+            .h3();
+            grid-area: institution;
+            margin-right: @line-margin-left;
+          }
+
+          .study-type {
+            .h3();
+            grid-area: study-type;
+            font-weight: normal;
+            margin-right: @line-margin-left;
+          }
+          
+          .duration {
+            grid-area: duration;
+            margin-right: @line-margin-left;
+          }
+
+          &::before {
+            display: block;
+            content: "";
+            grid-area: line;
+            background: @line-color;
+            margin-top: 2px;
+          }
+
+          &::after {
+            @radius: 6px;
+            display: block;
+            content: "";
+            grid-area: line;
+            box-sizing: border-box;
+            top: 0;
+            width: @radius * 2;
+            height: @radius * 2;
+            border-radius: @radius;
+            margin-left: -@radius + @line-width/2;
+            border: 2px solid @line-color;
+            background: #colors[white];
+          }
+
+          .area {
+            .h3();
+            grid-area: area;
+            margin-left: @line-margin-right;
+          }
+
+          .gpa {
+            .h3();
+            grid-area: gpa;
+            font-weight: normal;
+            margin-left: @line-margin-right;
+
+            &::before {
+              content: "GPA: ";
+            }
+          }
+
+          .courses {
+            .p();
+            .highlights();
+            grid-area: courses;
+            margin-left: @line-margin-right;
+          }
+        }
       }
       
       
