@@ -48,9 +48,21 @@
       "url": "http://company.com",
       "startDate": "2013-01-01",
       "endDate": "2014-01-01",
-      "summary": "Description...",
+      "summary": "Adipisicing labore irure est enim minim fugiat qui ex pariatur cupidatat id sunt. Culpa mollit adipisicing consectetur in anim eiusmod esse mollit nostrud sint commodo.",
       "highlights": [
-        "Started the company"
+        "Nulla et incididunt deserunt quis est laboris pariatur enim minim id est.",
+        "Enim reprehenderit consequat ullamco fugiat qui ex dolore."
+      ]
+    },
+    {
+      "company": "Company",
+      "position": "President",
+      "url": "http://company.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Occaecat nulla eiusmod magna non nisi eu commodo reprehenderit. Aliqua dolore ad sunt nostrud esse elit cillum irure do sint adipisicing proident.",
+      "highlights": [
+        "Dolor irure labore elit occaecat."
       ]
     }
   ],

@@ -17,13 +17,15 @@
   h3: 0.85rem;
 }
 
+@body-text-line-height: 1.5;
+
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #colors[black];
 }
 
@@ -38,14 +40,20 @@ a {
   }
 }
 
+.h { 
+  font-family: 'Open Sans', sans-serif;
+}
+
 .h1 {
   font-size: #font-sizes[h1];
   font-weight: bold;
+  line-height: 1;
 }
 
 .h2 {
   font-size: #font-sizes[h2];
   font-weight: bold;
+  line-height: 1;
 }
 
 .h3 {
@@ -53,6 +61,11 @@ a {
   font-size: @f;
   font-weight: bold;
   margin-bottom: @f * 0.75;
+  line-height: 1;
+}
+
+.p {
+  margin-bottom: 0.6375rem;
 }
 
 @media print, screen and (min-width: 210mm) {
@@ -171,7 +184,6 @@ a {
           @line-margin-left: 10mm;
           @line-margin-right: 5mm;
           display: grid; 
-          margin-top: 1.5mm;
           grid-template-columns: auto @line-width 1fr;
           grid-template-areas: 
             "duration line company"
@@ -187,6 +199,7 @@ a {
           .duration {
             grid-area: duration;
             margin-right: @line-margin-left;
+            font-size: #font-sizes[h3];
 
             .start-date {
               display: inline-block;
@@ -239,13 +252,24 @@ a {
           }
 
           .summary {
+            .p();
             grid-area: summary;
             margin-left: @line-margin-right;
+            line-height: @body-text-line-height;
           }
 
           .highlights {
+            .p();
             grid-area: highlights;
             margin-left: @line-margin-right;
+            line-height: @body-text-line-height;
+
+            .highlight {
+              &::before {
+                content: "•";
+                margin-right: 0.75em;
+              }
+            }
           }
         }
       }
