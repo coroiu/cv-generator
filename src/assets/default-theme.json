@@ -2,7 +2,10 @@
   "styleUrl": "assets/default-theme.less",
   "sections": {
     "sidebar": [
-      "basics"
+      "basics",
+      "skills",
+      "languages",
+      "interests"
     ],
     "main": [
       "basics",
