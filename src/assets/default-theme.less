@@ -54,29 +54,37 @@ a {
 }
 
 .h1 {
+  .h();
   font-size: #font-sizes[h1];
   font-weight: bold;
+  letter-spacing: 0.075em;
   line-height: 1;
 }
 
 .h2 {
+  .h();
   font-size: #font-sizes[h2];
   font-weight: bold;
+  letter-spacing: 0.075em;
   line-height: 1;
 }
 
 .h3 {
+  .h();
   @f: #font-sizes[h3];
   font-size: @f;
   font-weight: bold;
+  letter-spacing: 0.075em;
   margin-bottom: @f * 0.75;
   line-height: 1;
 }
 
 .h4 {
+  .h();
   @f: #font-sizes[h4];
   font-size: @f;
   font-weight: bold;
+  letter-spacing: 0.075em;
   margin-bottom: @f * 0.5;
   line-height: 1;
 }
@@ -89,6 +97,7 @@ a {
   font-family: "icofont";
   margin-right: 0.25em;
   display: inline-block;
+  font-weight: 100;
   content: @icon;
 }
 
@@ -272,6 +281,75 @@ a {
             content: "Skills";
             grid-row: 1;
           }
+
+          skill {
+            position: relative;
+
+            & + skill {
+              margin-top: 1em;
+            }
+
+            .name {
+            }
+
+            .skill {
+              // 'beginner' | 'intermediate' | 'advanced' | 'master' 
+              @c: #colors[inverted];
+              @width: 30px;
+              position: absolute;
+              top: 1px;
+              right: 0;
+              color: darken(@c, 15%);
+              width: @width;
+              height: 10px;
+              background: #colors[white];
+
+              &::before {
+                display: block;
+                position: absolute;
+                content: "";
+                top: 2px;
+                bottom: 2px;
+                left: 2px;
+                background: #colors[secondary];
+              }
+
+              &.beginner::before {
+                width: (@width - 4px) * 0.25;
+              }
+
+              &.intermediate::before {
+                width: (@width - 4px) * 0.5;
+              }
+
+              &.advanced::before {
+                width: (@width - 4px) * 0.75;
+              }
+
+              &.master::before {
+                width: (@width - 4px);
+              }
+
+              .label {
+                display: none;
+              }
+            }
+
+            .keywords {
+              clear: both;
+              margin-top: 0.5em;
+              margin-bottom: 0.5em;
+              
+              .keyword {
+                line-height: @body-text-line-height;
+
+                &::before {
+                  content: "•";
+                  margin-right: 0.75em;
+                }
+              }
+            }
+          }
         }
 
       }
@@ -390,6 +468,10 @@ a {
         .name, .label, .email, .phone, avatar, location, profile {
           display: none;
         }
+
+        .summary {
+          line-height: @body-text-line-height;
+        }
       }
 
       resume-section.work {
@@ -482,7 +564,7 @@ a {
 
         .section-header { 
           &::before {
-            .icon("\efc2");
+            .icon("\eeaa");
           }
 
           &::after {
@@ -514,6 +596,7 @@ a {
               grid-row: 2;
               margin-bottom: 0.25em;
               font-weight: normal;
+              letter-spacing: inherit;
             }
             
             .duration {
@@ -567,6 +650,7 @@ a {
             .h3();
             grid-area: study-type;
             font-weight: normal;
+            letter-spacing: inherit;
             margin-right: @line-margin-left;
           }
           
@@ -608,6 +692,7 @@ a {
             .h3();
             grid-area: gpa;
             font-weight: normal;
+            letter-spacing: inherit;
             margin-left: @line-margin-right;
 
             &::before {
@@ -666,6 +751,7 @@ a {
               grid-row: 2;
               margin-bottom: 0.25em;
               font-weight: normal;
+              letter-spacing: inherit;
             }
             
             .date {
@@ -719,6 +805,7 @@ a {
               grid-row: 2;
               margin-bottom: 0.25em;
               font-weight: normal;
+              letter-spacing: inherit;
             }
             
             .release-date {
@@ -777,6 +864,7 @@ a {
               grid-row: 2;
               margin-bottom: 0.25em;
               font-weight: normal;
+              letter-spacing: inherit;
             }
 
             .type {
@@ -841,11 +929,11 @@ a {
 
         .section-header { 
           &::before {
-            .icon("\ef36");
+            .icon("\eef1");
           }
 
           &::after {
-            content: "Projects";
+            content: "References";
           }
         }
 
