@@ -131,9 +131,35 @@
       "date": "2014-11-01",
       "awarder": "Company",
       "summary": "There is no spoon."
+    },
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    },
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
     }
   ],
   "publications": [
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "http://publication.com",
+      "summary": "Description..."
+    },
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "http://publication.com",
+      "summary": "Description..."
+    },
     {
       "name": "Publication",
       "publisher": "Company",
@@ -172,6 +198,14 @@
     {
       "name": "Jane Doe",
       "reference": "Reference..."
+    },
+    {
+      "name": "Jane Doe",
+      "reference": "Reference..."
+    },
+    {
+      "name": "Jane Doe",
+      "reference": "Reference..."
     }
   ],
   "projects": [
@@ -182,14 +216,17 @@
         "Directs you close but not quite there"
       ],
       "keywords": [
-        "AngularJS"
+        "AngularJS",
+        "Typescript",
+        "HTML",
+        "Javascript"
       ],
       "startDate": "2014-06-29",
       "endDate": "2014-10-29",
       "url": "http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html",
       "roles": [
         "Team Lead",
-        " Speaker",
+        "Speaker",
         "Writer"
       ],
       "entity": "CorporationXYZ",

@@ -73,6 +73,14 @@ a {
   line-height: 1;
 }
 
+.h4 {
+  @f: #font-sizes[h4];
+  font-size: @f;
+  font-weight: bold;
+  margin-bottom: @f * 0.5;
+  line-height: 1;
+}
+
 .p {
   margin-bottom: 0.6375rem;
 }
@@ -519,12 +527,18 @@ a {
             .highlights();
             grid-area: courses;
             margin-left: @line-margin-right;
+
+            .course {
+              .highlights.highlight();
+            }
           }
         }
       }
       
       
       resume-section.awards {
+        margin-bottom: 2.5mm;
+
         .section-header { 
           &::before {
             .icon("\eace");
@@ -534,10 +548,50 @@ a {
             content: "Awards";
           }
         }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          award {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .title {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .awarder {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+            }
+            
+            .date {
+              grid-row: 3;
+              font-size: #font-sizes[h4];
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
       }
       
-      
       resume-section.publications {
+        margin-bottom: 2.5mm;
+
         .section-header { 
           &::before {
             .icon("\eae5");
@@ -547,10 +601,51 @@ a {
             content: "Publications";
           }
         }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          publication {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .publisher {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+            }
+            
+            .release-date {
+              grid-row: 3;
+              font-size: #font-sizes[h4];
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
       }
       
       
       resume-section.projects {
+        margin-bottom: 2.5mm;
+
         .section-header { 
           &::before {
             .icon("\ef36");
@@ -560,8 +655,134 @@ a {
             content: "Projects";
           }
         }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          project {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+
+            .type {
+              display: none;
+            }
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .entity {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+            }
+
+            .type {
+              margin-bottom: 0.25em;
+            }
+            
+            .duration {
+              grid-row: 3;
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              grid-row: 4;
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+
+            .roles {
+              .highlights();
+              grid-row: 5;
+              margin-top: 0.25em;
+              margin-bottom: 0.25em;
+              
+              &::before {
+                .h4();
+                content: "Roles";
+              }
+
+              .role {
+                .highlights.highlight();
+              }
+            }
+
+            .highlights {
+              grid-row: 6;
+              margin-bottom: 0.25em;
+
+              &::before {
+                .h4();
+                content: "Highlights";
+              }
+            }
+
+            .keywords {
+              grid-row: 7;
+              margin-bottom: 0.25em;
+
+              .keyword {
+                float: left;
+                margin-right: 0.5em;
+                padding: 0.5em;
+                color: #colors[inverted];
+                background: #colors[primary];
+              }
+            }
+          }
+        }
       }
     
+      resume-section.references {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\ef36");
+          }
+
+          &::after {
+            content: "Projects";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          reference {
+            display: grid;
+            width: 50%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+  
+            .reference {
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
     }
   }
 }

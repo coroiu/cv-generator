@@ -1,5 +1,12 @@
-<div *ngIf="publication.name" class="name">{{publication.name}}</div>
+<ng-container *ngIf="publication.url">
+  <a [href]="publication.url" class="name">
+    <div>{{publication.name}}</div>
+  </a>
+</ng-container>
+<ng-container *ngIf="!publication.url">
+  <div class="name">{{publication.name}}</div>
+</ng-container>
+
 <div *ngIf="publication.publisher" class="publisher">{{publication.publisher}}</div>
-<div *ngIf="publication.releaseDate" class="releaseDate">{{publication.releaseDate}}</div>
-<div *ngIf="publication.url" class="url">{{publication.url}}</div>
+<div *ngIf="publication.releaseDate" class="release-ate">{{publication.releaseDate}}</div>
 <div *ngIf="publication.summary" class="summary">{{publication.summary}}</div>

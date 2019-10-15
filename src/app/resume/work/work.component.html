@@ -1,4 +1,4 @@
-<div class="position">{{work.position}}</div>
+<div *ngIf="work.position" class="position">{{work.position}}</div>
 
 <ng-container *ngIf="work.url">
   <a [href]="work.url" class="company">
@@ -9,10 +9,10 @@
   <div class="company">{{work.company}}</div>
 </ng-container>
 
-<div class="summary">{{work.summary}}</div>
-<div class="duration">
-  <div class="start-date">{{work.startDate}}</div>
-  <div class="end-date">{{work.endDate}}</div>
+<div *ngIf="work.summary" class="summary">{{work.summary}}</div>
+<div *ngIf="work.startDate && work.endDate" class="duration">
+  <div *ngIf="work.startDate" class="start-date">{{work.startDate}}</div>
+  <div *ngIf="work.endDate" class="end-date">{{work.endDate}}</div>
 </div>
 
 <div *ngIf="work.highlights" class="highlights">
