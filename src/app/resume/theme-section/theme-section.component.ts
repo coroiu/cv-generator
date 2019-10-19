@@ -9,7 +9,7 @@ import { ResumeSection } from 'src/app/theming/theme';
   styleUrls: ['./theme-section.component.scss']
 })
 export class ThemeSectionComponent implements OnInit {
-  resume: JsonResume;
+  @Input() resume: JsonResume;
 
   @Input() sections: ResumeSection[] = [];
   @Input() name = '';

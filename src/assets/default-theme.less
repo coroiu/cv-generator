@@ -132,11 +132,13 @@ a {
 
 @media print, screen and (min-width: 210mm) {
   resume {
-    display: grid;
-    grid-template-columns: 60mm 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-      "sidebar main";
+    .sheet {
+      display: grid;
+      grid-template-columns: 60mm 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "sidebar main";
+    }
 
     theme-section.sidebar {
       grid-area: sidebar;
