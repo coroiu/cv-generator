@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent implements OnInit {
+  editorOptions = {
+    theme: 'vs-dark',
+    language: 'javascript'
+  };
+  code: string;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
