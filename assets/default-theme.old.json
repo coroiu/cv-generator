@@ -1,0 +1,21 @@
+{
+  "styleUrl": "assets/default-theme.less",
+  "sections": {
+    "header": [
+      "basics"
+    ],
+    "avatar": [
+      "basics"
+    ],
+    "main": [
+      "work",
+      "volunteer",
+      "education",
+      "awards",
+      "publications",
+      "projects"
+    ],
+    "sidebar": [],
+    "footer": []
+  }
+}

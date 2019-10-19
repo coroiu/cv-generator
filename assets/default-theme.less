@@ -1,0 +1,973 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+  --theme-elements: 2;
+}
+
+#colors() {
+  primary: #343338;
+  secondary: #008cc9;
+  black: #333133;
+  white: #f5f5f5;
+  inverted: #f3f2f6;
+  // inverted-background: #343338;
+}
+
+#font-sizes() {
+  h1: 1.5rem;
+  h2: 1.1rem;
+  h3: 0.85rem;
+  h4: 0.7rem;
+}
+
+@body-text-line-height: 1.5;
+@sidebar-padding: 5mm;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.7rem;
+  color: #colors[black];
+}
+
+.sheet {
+  @c: #colors[white];
+  background: @c !important;
+}
+
+a {
+  @color: #colors[black];
+  color: @color;
+  text-decoration: none;
+  
+  &:hover, &:active {
+    color: darken(@color, 15%);
+    text-decoration: underline;
+  }
+}
+
+.h { 
+  font-family: 'Open Sans', sans-serif;
+}
+
+.h1 {
+  .h();
+  font-size: #font-sizes[h1];
+  font-weight: bold;
+  letter-spacing: 0.075em;
+  line-height: 1;
+}
+
+.h2 {
+  .h();
+  font-size: #font-sizes[h2];
+  font-weight: bold;
+  letter-spacing: 0.075em;
+  line-height: 1;
+}
+
+.h3 {
+  .h();
+  @f: #font-sizes[h3];
+  font-size: @f;
+  font-weight: bold;
+  letter-spacing: 0.075em;
+  margin-bottom: @f * 0.75;
+  line-height: 1;
+}
+
+.h4 {
+  .h();
+  @f: #font-sizes[h4];
+  font-size: @f;
+  font-weight: bold;
+  letter-spacing: 0.075em;
+  margin-bottom: @f * 0.5;
+  line-height: 1;
+}
+
+.p {
+  margin-bottom: 0.6375rem;
+}
+
+.icon(@icon) {
+  font-family: "icofont";
+  margin-right: 0.25em;
+  display: inline-block;
+  font-weight: 100;
+  content: @icon;
+}
+
+.duration {
+  font-size: #font-sizes[h4];
+
+  .start-date {
+    display: inline-block;
+  }
+
+  .end-date {
+    display: inline-block;
+
+    &::before {
+      display: inline-block;
+      content: '-';
+      margin: 0 0.25em;
+    }
+  }
+}
+
+.highlights {
+  line-height: @body-text-line-height;
+
+  .highlight {
+    &::before {
+      content: "•";
+      margin-right: 0.75em;
+    }
+  }
+}
+
+@media print, screen and (min-width: 210mm) {
+  resume {
+    .sheet {
+      display: grid;
+      grid-template-columns: 60mm 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "sidebar main";
+    }
+
+    theme-section.sidebar {
+      grid-area: sidebar;
+      background: #colors[primary];
+      color: #colors[inverted];
+      padding: 0 @sidebar-padding;
+
+      a {
+        @c: #colors[inverted];
+        color: @c;
+
+        &:hover, &:active {
+          color: darken(@c, 15%);
+          text-decoration: none;
+        }
+      }
+
+      .sidebar-header {
+        .h2();
+        @color: #colors[secondary];
+        text-transform: uppercase;
+        border-bottom: @color 2px solid;
+        padding-bottom: 2mm;
+        margin-top: 5mm;
+        margin-bottom: 4mm;
+      }
+
+      resume-section.basics {
+        .section-body {
+          display: grid;
+
+          a {
+            @c: #colors[inverted];
+            color: @c;
+
+            &:hover, &:active {
+              color: darken(@c, 15%);
+              text-decoration: none;
+            }
+          }
+
+          avatar {
+            position: relative;
+            grid-row: 1;
+            margin: 0 -@sidebar-padding;
+            img[style] {
+              width: 100% !important;
+              height: auto !important;
+            }
+          }
+
+          .name {
+            .h1();
+            grid-row: 2;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 1em;
+            line-height: 1.1;
+          }
+
+          .label {
+            grid-row: 3;
+            text-align: center;
+            margin-top: 0.75em;
+            color: #colors[secondary];
+          }
+
+          &::before {
+            .sidebar-header();
+            grid-row: 4;
+            content: "Contact";
+            margin-top: 5mm;
+          }
+
+          .summary {
+            display: none;
+          }
+
+          location {
+            .p();
+            line-height: 1.075;
+            grid-row: 5;
+          }
+
+          .contact-entry(@icon) {
+            .p();
+            display: flex;
+            align-items: center;
+
+            &::before {
+              font-size: 1.5rem;
+              .icon(@icon);
+              margin-right: 0.5em;
+            }
+          }
+
+          .email {
+            grid-row: 6;
+            .contact-entry("\ef12");
+          }
+
+          .phone {
+            grid-row: 7;
+            .contact-entry("\efec");
+          }
+
+          .profiles {
+            profile {
+              a {
+                .contact-entry("\ef71");
+              }
+
+              &.twitter a {
+                .contact-entry("\ed7a");
+              }
+
+              &.facebook a {
+                .contact-entry("\ed37");
+              }
+
+              &.github a {
+                .contact-entry("\ed3e");
+              }
+
+              &.stack-overflow a {
+                .contact-entry("\ed70");
+              }
+
+              &.linkedin a {
+                .contact-entry("\ed4d");
+              }
+            }
+          }
+        }
+      }
+      
+      resume-section.skills {
+        .section-body {
+          display: grid;
+
+          &::before {
+            .sidebar-header();
+            content: "Skills";
+            grid-row: 1;
+          }
+
+          skill {
+            position: relative;
+
+            & + skill {
+              margin-top: 1em;
+            }
+
+            .name {
+            }
+
+            .skill {
+              // 'beginner' | 'intermediate' | 'advanced' | 'master' 
+              @c: #colors[inverted];
+              @width: 30px;
+              position: absolute;
+              top: 1px;
+              right: 0;
+              color: darken(@c, 15%);
+              width: @width;
+              height: 10px;
+              background: #colors[white];
+
+              &::before {
+                display: block;
+                position: absolute;
+                content: "";
+                top: 2px;
+                bottom: 2px;
+                left: 2px;
+                background: #colors[secondary];
+              }
+
+              &.beginner::before {
+                width: (@width - 4px) * 0.25;
+              }
+
+              &.intermediate::before {
+                width: (@width - 4px) * 0.5;
+              }
+
+              &.advanced::before {
+                width: (@width - 4px) * 0.75;
+              }
+
+              &.master::before {
+                width: (@width - 4px);
+              }
+
+              .label {
+                display: none;
+              }
+            }
+
+            .keywords {
+              clear: both;
+              margin-top: 0.5em;
+              margin-bottom: 0.5em;
+              
+              .keyword {
+                line-height: @body-text-line-height;
+
+                &::before {
+                  content: "•";
+                  margin-right: 0.75em;
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+      resume-section.languages {
+        .section-body {
+          display: grid;
+
+          &::before {
+            .sidebar-header();
+            content: "Languages";
+            grid-row: 1;
+          }
+
+          language {
+            & + language {
+              margin-top: 0.5em;
+            }
+
+            .language {
+              float: left;
+            }
+
+            .fluency {
+              @c: #colors[inverted];
+              float: right;
+              color: darken(@c, 15%);
+            }
+          }
+        }
+
+      }
+
+      resume-section.interests {
+        &::before {
+          .sidebar-header();
+          content: "Interests";
+          display: block;
+        }
+        
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: -0.5em;
+
+          interest {
+            display: block;
+            padding: 0.5em;
+            margin: 0 1em 1em 0;
+            background: #colors[white];
+            color: #colors[black];
+
+            .name {
+              .h4();
+              margin-bottom: 0;
+            }
+
+            .keywords {
+              @f: #font-sizes[h4];
+              margin-top: @f * 0.5;
+
+              .keyword {
+                &::before {
+                  content: "•";
+                  margin-right: 0.75em;
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    theme-section.main {
+      grid-area: main;
+      padding: 10mm 10mm 0 10mm;
+
+      resume-section { 
+        display: block;
+        margin-bottom: 10mm;
+
+        .section-header {
+          .h2();
+          @color: #colors[secondary];
+          display: block;
+          position: relative;
+          text-transform: uppercase;
+          border-bottom: @color 2px solid;
+          padding-bottom: 0.25em;
+          margin: 0 0 4mm 12mm;
+  
+          &::before {
+            position: absolute;
+            left: -12mm;
+            top: -0.4em;
+            padding: 0.4em;
+            background: #colors[secondary];
+            color: #colors[white];
+            border-radius: 50%;
+          }  
+        }
+      }
+
+      resume-section.basics {
+        .section-header { 
+          &::before {
+            .icon("\ecef");
+          }
+
+          &::after {
+            content: "About me";
+          }
+        }
+
+        .name, .label, .email, .phone, avatar, location, profile {
+          display: none;
+        }
+
+        .summary {
+          line-height: @body-text-line-height;
+        }
+      }
+
+      resume-section.work {
+        display: block;
+        position: relative;
+
+        .section-header { 
+          &::before {
+            .icon("\eec2");
+          }
+
+          &::after {
+            content: "Experiences";
+          }
+        }
+
+        work {
+          @line-color: #colors[secondary];
+          @line-width: 3px;
+          @line-margin-left: 5mm;
+          @line-margin-right: 5mm;
+          display: grid; 
+          grid-template-columns: auto @line-width 1fr;
+          grid-template-areas: 
+            "position line company"
+            "duration line summary"
+            "   .     line highlights";
+
+          &:first-of-type {
+            @f: #font-sizes[h2];
+            margin-top: @f/2 + 1.5mm;
+          }
+
+          .position {
+            .h3();
+            grid-area: position;
+          }
+          
+          .duration {
+            grid-area: duration;
+            margin-right: @line-margin-left;
+          }
+
+          &::before {
+            display: block;
+            content: "";
+            grid-area: line;
+            background: @line-color;
+            margin-top: 2px;
+          }
+
+          &::after {
+            @radius: 6px;
+            display: block;
+            content: "";
+            grid-area: line;
+            box-sizing: border-box;
+            top: 0;
+            width: @radius * 2;
+            height: @radius * 2;
+            border-radius: @radius;
+            margin-left: -@radius + @line-width/2;
+            border: 2px solid @line-color;
+            background: #colors[white];
+          }
+
+          .company {
+            .h3();
+            grid-area: company;
+            margin-left: @line-margin-right;
+          }
+
+          .summary {
+            .p();
+            grid-area: summary;
+            margin-left: @line-margin-right;
+            line-height: @body-text-line-height;
+          }
+
+          .highlights {
+            .p();
+            grid-area: highlights;
+            margin-left: @line-margin-right;
+          }
+        }
+      }
+
+      resume-section.volunteer {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eeaa");
+          }
+
+          &::after {
+            content: "Volunteer";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          volunteer {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .organization {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .position {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+            
+            .duration {
+              grid-row: 3;
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+
+      resume-section.education {
+        .section-header { 
+          &::before {
+            .icon("\eade");
+          }
+
+          &::after {
+            content: "Education";
+          }
+        }
+
+        education {
+          @line-color: #colors[secondary];
+          @line-width: 3px;
+          @line-margin-left: 5mm;
+          @line-margin-right: 5mm;
+          display: grid; 
+          grid-template-columns: auto @line-width 1fr;
+          grid-template-areas: 
+            "institution line area"
+            "study-type  line gpa"
+            "duration    line courses";
+
+          &:first-of-type {
+            @f: #font-sizes[h2];
+            margin-top: @f/2 + 1.5mm;
+          }
+
+          .institution {
+            .h3();
+            grid-area: institution;
+            margin-right: @line-margin-left;
+          }
+
+          .study-type {
+            .h3();
+            grid-area: study-type;
+            font-weight: normal;
+            letter-spacing: inherit;
+            margin-right: @line-margin-left;
+          }
+          
+          .duration {
+            grid-area: duration;
+            margin-right: @line-margin-left;
+          }
+
+          &::before {
+            display: block;
+            content: "";
+            grid-area: line;
+            background: @line-color;
+            margin-top: 2px;
+          }
+
+          &::after {
+            @radius: 6px;
+            display: block;
+            content: "";
+            grid-area: line;
+            box-sizing: border-box;
+            top: 0;
+            width: @radius * 2;
+            height: @radius * 2;
+            border-radius: @radius;
+            margin-left: -@radius + @line-width/2;
+            border: 2px solid @line-color;
+            background: #colors[white];
+          }
+
+          .area {
+            .h3();
+            grid-area: area;
+            margin-left: @line-margin-right;
+          }
+
+          .gpa {
+            .h3();
+            grid-area: gpa;
+            font-weight: normal;
+            letter-spacing: inherit;
+            margin-left: @line-margin-right;
+
+            &::before {
+              content: "GPA: ";
+            }
+          }
+
+          .courses {
+            .p();
+            .highlights();
+            grid-area: courses;
+            margin-left: @line-margin-right;
+
+            .course {
+              .highlights.highlight();
+            }
+          }
+        }
+      }
+      
+      
+      resume-section.awards {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eace");
+          }
+
+          &::after {
+            content: "Awards";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          award {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .title {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .awarder {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+            
+            .date {
+              grid-row: 3;
+              font-size: #font-sizes[h4];
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+      
+      resume-section.publications {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eae5");
+          }
+
+          &::after {
+            content: "Publications";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          publication {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .publisher {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+            
+            .release-date {
+              grid-row: 3;
+              font-size: #font-sizes[h4];
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+      
+      
+      resume-section.projects {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\ef36");
+          }
+
+          &::after {
+            content: "Projects";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          project {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+
+            .type {
+              display: none;
+            }
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .entity {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+
+            .type {
+              margin-bottom: 0.25em;
+            }
+            
+            .duration {
+              grid-row: 3;
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              grid-row: 4;
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+
+            .roles {
+              .highlights();
+              grid-row: 5;
+              margin-top: 0.25em;
+              margin-bottom: 0.25em;
+              
+              &::before {
+                .h4();
+                content: "Roles";
+              }
+
+              .role {
+                .highlights.highlight();
+              }
+            }
+
+            .highlights {
+              grid-row: 6;
+              margin-bottom: 0.25em;
+
+              &::before {
+                .h4();
+                content: "Highlights";
+              }
+            }
+
+            .keywords {
+              grid-row: 7;
+              margin-bottom: 0.25em;
+
+              .keyword {
+                float: left;
+                margin-right: 0.5em;
+                padding: 0.5em;
+                color: #colors[inverted];
+                background: #colors[primary];
+              }
+            }
+          }
+        }
+      }
+    
+      resume-section.references {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eef1");
+          }
+
+          &::after {
+            content: "References";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          reference {
+            display: grid;
+            width: 50%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+  
+            .reference {
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

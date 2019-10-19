@@ -1,0 +1,300 @@
+{
+  "basics": {
+    "name": "Test Example",
+    "label": "Software developer",
+    "email": "test.example@gmail.com",
+    "phone": "(912) 555-4321",
+    "url": "http://johndoe.com",
+    "summary": "Officia amet non eiusmod id in labore dolore velit labore sunt voluptate duis. Mollit ex officia pariatur consequat commodo id non non elit. Consequat amet eiusmod dolor qui qui. Duis non commodo cupidatat sit est culpa amet qui elit excepteur amet veniam voluptate eu.",
+    "location": {
+      "address": "2712 Broadway St",
+      "postalCode": "CA 94115",
+      "city": "San Francisco",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "@john",
+        "url": "http://twitter.com/john"
+      },
+      {
+        "network": "Facebook",
+        "username": "John Doe",
+        "url": "http://twitter.com/john"
+      },
+      {
+        "network": "Github",
+        "username": "john",
+        "url": "http://twitter.com/john"
+      },
+      {
+        "network": "Stack Overflow",
+        "username": "john",
+        "url": "http://twitter.com/john"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "john",
+        "url": "http://twitter.com/john"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Company",
+      "position": "President",
+      "url": "http://company.com",
+      "startDate": "2013",
+      "endDate": "2014",
+      "summary": "Adipisicing labore irure est enim minim fugiat qui ex pariatur cupidatat id sunt. Culpa mollit adipisicing consectetur in anim eiusmod esse mollit nostrud sint commodo.",
+      "highlights": [
+        "Nulla et incididunt deserunt quis est laboris pariatur enim minim id est.",
+        "Enim reprehenderit consequat ullamco fugiat qui ex dolore."
+      ]
+    },
+    {
+      "company": "Company",
+      "position": "President",
+      "url": "http://company.com",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "Occaecat nulla eiusmod magna non nisi eu commodo reprehenderit. Aliqua dolore ad sunt nostrud esse elit cillum irure do sint adipisicing proident.",
+      "highlights": [
+        "Dolor irure labore elit occaecat."
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Cillum",
+      "position": "Volunteer",
+      "url": "http://organization.com/",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "Qui est quis labore ut labore aute ex ullamco.",
+      "highlights": [
+        "Proident sit consequat minim."
+      ]
+    },
+    {
+      "organization": "Deserunt",
+      "position": "Volunteer",
+      "url": "http://organization.com/",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "Veniam sit veniam adipisicing in ut irure aliquip in eiusmod ea officia non.",
+      "highlights": [
+        "Laborum occaecat fugiat commodo minim."
+      ]
+    },
+    {
+      "organization": "Dolor",
+      "position": "Volunteer",
+      "url": "http://organization.com/",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "Laborum pariatur esse in commodo exercitation aliqua et ullamco qui quis aliqua.",
+      "highlights": [
+        "Enim quis dolore est."
+      ]
+    },
+    {
+      "organization": "Magna",
+      "position": "Volunteer",
+      "url": "http://organization.com/",
+      "startDate": "2012",
+      "endDate": "2013",
+      "summary": "In pariatur qui aliqua deserunt pariatur.",
+      "highlights": [
+        "Esse mollit."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University",
+      "area": "Software Development",
+      "studyType": "Bachelor",
+      "startDate": "2011-01-01",
+      "endDate": "2013-01-01",
+      "gpa": "4.0",
+      "courses": [
+        "DB1101 - Basic SQL"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    },
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    },
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    }
+  ],
+  "publications": [
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "http://publication.com",
+      "summary": "Description..."
+    },
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "http://publication.com",
+      "summary": "Description..."
+    },
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "http://publication.com",
+      "summary": "Description..."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "beginner",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "level": "intermediate",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "level": "advanced",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "level": "master",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "level": "master"
+    },
+    {
+      "name": "Web Development",
+      "level": "master"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Native"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": [
+        "Ferrets",
+        "Unicorns"
+      ]
+    },
+    {
+      "name": "Lorem ispum",
+      "keywords": [
+        "Ferrets",
+        "Unicorns"
+      ]
+    },
+    {
+      "name": "Set dolor",
+      "keywords": [
+        "Ferrets",
+        "Unicorns"
+      ]
+    },
+    {
+      "name": "Set dolor",
+      "keywords": [
+        "Ferrets",
+        "Unicorns"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Jane Doe",
+      "reference": "Reference..."
+    },
+    {
+      "name": "Jane Doe",
+      "reference": "Reference..."
+    },
+    {
+      "name": "Jane Doe",
+      "reference": "Reference..."
+    }
+  ],
+  "projects": [
+    {
+      "name": "The World Wide Web",
+      "description": "Short summary of the project, e.g. Collated works of 2017",
+      "highlights": [
+        "Directs you close but not quite there"
+      ],
+      "keywords": [
+        "AngularJS",
+        "Typescript",
+        "HTML",
+        "Javascript"
+      ],
+      "startDate": "2014-06-29",
+      "endDate": "2014-10-29",
+      "url": "http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html",
+      "roles": [
+        "Team Lead",
+        "Speaker",
+        "Writer"
+      ],
+      "entity": "CorporationXYZ",
+      "type": "volunteering"
+    }
+  ]
+}

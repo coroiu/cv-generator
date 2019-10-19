@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+  --theme-elements: 2;
+}
+
+#colors() {
+  primary: #fdc78a;
+  secondary: #2c3441;
+  black: #333133;
+  white: #ffffff;
+}
+
+#font-sizes() {
+  h1: 25pt;
+  h2: 1.25rem;
+  h3: 0.85rem;
+}
+
+@body-text-line-height: 1.5;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.7rem;
+  color: #colors[black];
+}
+
+a {
+  @color: #colors[black];
+  color: @color;
+  text-decoration: none;
+  
+  &:hover, &:active {
+    color: darken(@color, 15%);
+    text-decoration: underline;
+  }
+}
+
+.h { 
+  font-family: 'Open Sans', sans-serif;
+}
+
+.h1 {
+  font-size: #font-sizes[h1];
+  font-weight: bold;
+  line-height: 1;
+}
+
+.h2 {
+  font-size: #font-sizes[h2];
+  font-weight: bold;
+  line-height: 1;
+}
+
+.h3 {
+  @f: #font-sizes[h3];
+  font-size: @f;
+  font-weight: bold;
+  margin-bottom: @f * 0.75;
+  line-height: 1;
+}
+
+.p {
+  margin-bottom: 0.6375rem;
+}
+
+@media print, screen and (min-width: 210mm) {
+  resume {
+    display: grid;
+    grid-template-columns: 1fr 50mm;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header avatar"
+      "main sidebar"
+      "footer footer";
+
+    theme-section.header {
+      grid-area: header;
+      background: #colors[primary];
+
+      resume-section.basics{
+        .email, .phone, .summary, .avatar, location, avatar {
+          display: none;
+        }
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        .name {
+          .h1();
+          text-transform: uppercase;
+          letter-spacing: 1mm;
+          border: 0.75mm solid #colors[black];
+          padding: 5mm 10mm 7mm 10mm;
+          text-align: center;
+        }
+
+        .label {
+          font-size: 20pt;
+          background: #colors[primary];
+          margin-top: -4.5mm;
+          padding: 0 5mm;
+        }
+
+        .profiles { 
+          display: flex;
+          flex-wrap: wrap;
+          flex: 0 0 auto;
+          justify-content: center;
+          width: 100%;
+
+          profile {
+            margin: 5mm 5mm 0 5mm;
+            
+            a::before {
+              font-family: "icofont";
+              margin-right: 0.25em;
+              display: inline-block;
+            }
+
+            a:hover div, a:active div {
+              text-decoration: underline;
+            }
+
+            &.linkedin a::before {
+              content: "\ed4d";
+            }
+
+            .username {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+
+    theme-section.avatar {
+      grid-area: avatar;
+
+      resume-section.basics {
+        .name, .label, .email, .phone, .summary, .avatar, location, profile {
+          display: none;
+        }
+  
+        avatar {
+          img[style] {
+            width: 100% !important;
+            height: auto !important;
+          }
+        }
+      }
+    }
+
+    theme-section.main {
+      grid-area: main;
+
+      resume-section.work {
+        display: block;
+        position: relative;
+        margin: 10mm 12mm;
+        border-top: 0.5mm solid #colors[black];
+
+        &::before {
+          .h2();
+          display: block;
+          content: "Experiences";
+          position: absolute;
+          padding: 2mm 3mm;
+          border: 0.5mm solid #colors[black];
+          transform: translate(0, -50%);
+          background: #colors[white];
+        }
+
+        work {
+          @line-color: #6d6f71;
+          @line-width: 3px;
+          @line-margin-left: 10mm;
+          @line-margin-right: 5mm;
+          display: grid; 
+          grid-template-columns: auto @line-width 1fr;
+          grid-template-areas: 
+            "duration line company"
+            "   .     line position"
+            "   .     line summary"
+            "   .     line highlights";
+
+          &:first-of-type {
+            @f: #font-sizes[h2];
+            margin-top: @f/2 + 1.5mm;
+          }
+          
+          .duration {
+            grid-area: duration;
+            margin-right: @line-margin-left;
+            font-size: #font-sizes[h3];
+
+            .start-date {
+              display: inline-block;
+            }
+
+            .end-date {
+              display: inline-block;
+
+              &::before {
+                display: inline-block;
+                content: '-';
+                margin: 0 0.25em;
+              }
+            }
+          }
+
+          &::before {
+            display: block;
+            content: "";
+            grid-area: line;
+            background: @line-color;
+            margin-top: 2px;
+          }
+
+          &::after {
+            @radius: 6px;
+            display: block;
+            content: "";
+            grid-area: line;
+            box-sizing: border-box;
+            top: 0;
+            width: @radius * 2;
+            height: @radius * 2;
+            border-radius: @radius;
+            margin-left: -@radius + @line-width/2;
+            border: 2px solid @line-color;
+            background: #colors[white];
+          }
+
+          .company {
+            .h3();
+            grid-area: company;
+            margin-left: @line-margin-right;
+          }
+
+          .position {
+            .h3();
+            grid-area: position;
+            margin-left: @line-margin-right;
+          }
+
+          .summary {
+            .p();
+            grid-area: summary;
+            margin-left: @line-margin-right;
+            line-height: @body-text-line-height;
+          }
+
+          .highlights {
+            .p();
+            grid-area: highlights;
+            margin-left: @line-margin-right;
+            line-height: @body-text-line-height;
+
+            .highlight {
+              &::before {
+                content: "•";
+                margin-right: 0.75em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
