@@ -5,7 +5,7 @@ import { JsonResume } from './json-resume/json-resume.js';
 import { LocalStorageProviderService } from './local-storage-provider.service.js';
 import { HttpClient } from '@angular/common/http';
 import { switchMap, map, tap } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const editingKey = 'editing.json';
 const resumeKey = 'resume.json';
@@ -22,12 +22,13 @@ export class ResumeProviderService implements OnDestroy {
   constructor(
     http: HttpClient,
     route: ActivatedRoute,
+    router: Router,
     private storage: LocalStorageProviderService
   ) {
     this.subscription = combineLatest(
       this.storage.observable$(editingKey),
       this.storage.observable$(resumeKey),
-      route.paramMap.pipe(map(m => {
+      route.queryParamMap.pipe(map(m => {
         if (m.has(urlKey)) {
           return m.get(urlKey);
         } else {
