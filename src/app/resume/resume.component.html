@@ -2,4 +2,5 @@
   <div class="sheet">
     <theme-section *ngFor="let section of sections" [resume]="resume" [name]="section.name" [sections]="section.sections"></theme-section>
   </div>
+  <div *ngIf="resumeProvider.canReset" class="reset" (click)="resumeProvider.reset()" title="Reset resume"></div>
 </ng-container>

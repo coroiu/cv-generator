@@ -20,7 +20,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
   sections: { name: string, sections: ResumeSection[] }[];
 
   constructor(
-    private resumeProvider: ResumeProviderService,
+    public resumeProvider: ResumeProviderService,
     private themeProvider: ThemeProviderService
   ) { }
 

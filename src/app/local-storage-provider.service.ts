@@ -21,6 +21,10 @@ export class LocalStorageProviderService implements OnDestroy {
     window.localStorage.setItem(key, value);
   }
 
+  get(key: string) {
+    return window.localStorage.getItem(key);
+  }
+
   ngOnDestroy() {
   }
 }

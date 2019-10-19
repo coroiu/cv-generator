@@ -68,6 +68,10 @@ export class ResumeProviderService implements OnDestroy {
     return this.resumeSubject$;
   }
 
+  get canReset() {
+    return this.storage.get(editingKey) === JSON.stringify(true);
+  }
+
   reset() {
     this.storage.set(editingKey, JSON.stringify(false));
   }
