@@ -15,7 +15,7 @@ const exampleUrl = 'assets/example-resume.json';
 })
 export class ResumeProviderService implements OnDestroy {
   private subscription: Subscription;
-  private resumeSubject$ = new BehaviorSubject<JsonResume>({});
+  private resumeSubject$ = new BehaviorSubject<string>('');
   private urlSubject$ = new BehaviorSubject<string>(exampleUrl);
 
   constructor(
@@ -33,11 +33,11 @@ export class ResumeProviderService implements OnDestroy {
         const url = v[2];
 
         if (editing) {
-          return of(resume).pipe(map(r => JSON.parse(r)));
+          return of(resume);
         } else {
-          return http.get<JsonResume>(url)
+          return http.get(url, { responseType: 'text' })
             .pipe(
-              tap(r => this.storage.set(resumeKey, JSON.stringify(r)))
+              tap(r => this.storage.set(resumeKey, r))
             );
         }
       })
@@ -45,6 +45,18 @@ export class ResumeProviderService implements OnDestroy {
   }
 
   get resume$(): Observable<JsonResume> {
+    return this.resumeSubject$.pipe(
+      map(v => {
+        try {
+          return JSON.parse(v);
+        } catch {
+          return {};
+        }
+      })
+    );
+  }
+
+  get resumeRaw$(): Observable<string> {
     return this.resumeSubject$;
   }
 
@@ -52,8 +64,8 @@ export class ResumeProviderService implements OnDestroy {
     this.storage.set(editingKey, JSON.stringify(false));
   }
 
-  save(resume: JsonResume) {
-    this.storage.set(resumeKey, JSON.stringify(resume));
+  save(resume: string) {
+    this.storage.set(resumeKey, resume);
     this.storage.set(editingKey, JSON.stringify(true));
   }
 
