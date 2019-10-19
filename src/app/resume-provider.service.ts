@@ -5,9 +5,11 @@ import { JsonResume } from './json-resume/json-resume.js';
 import { LocalStorageProviderService } from './local-storage-provider.service.js';
 import { HttpClient } from '@angular/common/http';
 import { switchMap, map, tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 const editingKey = 'editing.json';
 const resumeKey = 'resume.json';
+const urlKey = 'resume';
 const exampleUrl = 'assets/example-resume.json';
 
 @Injectable({
@@ -16,16 +18,22 @@ const exampleUrl = 'assets/example-resume.json';
 export class ResumeProviderService implements OnDestroy {
   private subscription: Subscription;
   private resumeSubject$ = new BehaviorSubject<string>('');
-  private urlSubject$ = new BehaviorSubject<string>(exampleUrl);
 
   constructor(
     http: HttpClient,
+    route: ActivatedRoute,
     private storage: LocalStorageProviderService
   ) {
     this.subscription = combineLatest(
       this.storage.observable$(editingKey),
       this.storage.observable$(resumeKey),
-      this.urlSubject$
+      route.paramMap.pipe(map(m => {
+        if (m.has(urlKey)) {
+          return m.get(urlKey);
+        } else {
+          return exampleUrl;
+        }
+      }))
     ).pipe(
       switchMap(v => {
         const editing: boolean = JSON.parse(v[0]);
