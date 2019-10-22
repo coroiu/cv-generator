@@ -3,7 +3,7 @@ import { JsonResume } from '../json-resume/json-resume';
 export interface Theme {
   styleUrl?: string;
   style?: string;
-  sections: ThemeSections;
+  pages: ThemeSections[];
 }
 
 export interface ThemeSections {

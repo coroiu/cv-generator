@@ -1,4 +1,5 @@
 export interface JsonResume {
+  meta?: object;
   basics?: Basics;
   work?: Work[];
   volunteer?: Volunteer[];

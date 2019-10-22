@@ -2,9 +2,10 @@
 
 body {
   margin: 0;
+  height: 100%;
 
   /** Fix for Chrome issue #273306 **/
-  @media print {
+  @media print {  
     width: 210mm;
   }
 
@@ -12,7 +13,24 @@ body {
     background: rgb(82, 86, 89);
   }
 
-  .sheet {
+  .sheet.big {
+    $shadow-color: lighten(#000000, 15%);
+    background: white;
+    box-shadow: 0 1mm 4mm $shadow-color;
+    margin: 5mm auto;
+    position: relative;
+
+    @media screen and (min-width: 210mm) {
+      width: 210mm; 
+      // height: 296mm;
+    }
+    
+    @media print {
+      display: none;
+    }
+  }
+
+  .sheet.print {
     margin: 0;
     position: relative;
     box-sizing: border-box;
@@ -25,46 +43,7 @@ body {
     }
 
     @media screen {
-      $shadow-color: lighten(#000000, 15%);
-      background: white;
-      box-shadow: 0 1mm 4mm $shadow-color;
-      margin: 5mm auto;
-      position: relative;
-
-      // &::before, &::after {
-      //   z-index: -1;
-      //   position: absolute;
-      //   content: "";
-      //   bottom: 15px;
-      //   left: 10px;
-      //   width: 50%;
-      //   top: 80%;
-      //   background: $shadow-color;
-      //   -webkit-box-shadow: 0 15px 10px $shadow-color;
-      //   -moz-box-shadow: 0 15px 10px $shadow-color;
-      //   box-shadow: 0 15px 10px $shadow-color;
-      //   -webkit-transform: rotate(-3deg);
-      //   -moz-transform: rotate(-3deg);
-      //   -o-transform: rotate(-3deg);
-      //   -ms-transform: rotate(-3deg);
-      //   transform: rotate(-3deg);
-      // }
-
-      // &::after {
-      //   content: "";
-      //   -webkit-transform: rotate(3deg);
-      //   -moz-transform: rotate(3deg);
-      //   -o-transform: rotate(3deg);
-      //   -ms-transform: rotate(3deg);
-      //   transform: rotate(3deg);
-      //   right: 10px;
-      //   left: auto;
-      // }
-    }
-
-    @media screen and (min-width: 210mm) {
-      width: 210mm; 
-      // height: 296mm;
+      display: none;
     }
   }
 }

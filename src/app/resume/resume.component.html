@@ -1,6 +1,10 @@
 <ng-container *ngIf="resume$ | async as resume">
-  <div class="sheet">
+  <div class="sheet big">
     <theme-section *ngFor="let section of sections" [resume]="resume" [name]="section.name" [sections]="section.sections"></theme-section>
+    <div *ngIf="resumeProvider.canReset" class="reset" (click)="resumeProvider.reset()" title="Reset resume"></div>
   </div>
-  <div *ngIf="resumeProvider.canReset" class="reset" (click)="resumeProvider.reset()" title="Reset resume"></div>
+
+  <div *ngFor="let page of pages" class="sheet print">
+    <theme-section *ngFor="let section of page" [resume]="resume" [name]="section.name" [sections]="section.sections"></theme-section>
+  </div>
 </ng-container>

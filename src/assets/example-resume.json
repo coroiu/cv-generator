@@ -1,4 +1,35 @@
 {
+  "meta": {
+    "theme": {
+      "pages": [
+        {
+          "sidebar": [
+            "basics"
+          ],
+          "main": [
+            "basics",
+            "work",
+            "volunteer",
+            "education",
+            "awards"
+          ]
+        },
+
+        {
+          "sidebar": [
+            "skills",
+            "languages",
+            "interests"
+          ],
+          "main": [
+            "publications",
+            "projects",
+            "references"
+          ]
+        }
+      ]
+    }
+  },
   "basics": {
     "name": "Test Example",
     "label": "Software developer",
