@@ -1,1 +1,3 @@
-<resume-section *ngFor="let section of sections" [resume]="resume" [name]="section"></resume-section>
+<ng-container *ngFor="let section of sections">
+  <resume-section *ngIf="resume[section]" [resume]="resume" [name]="section"></resume-section>
+</ng-container>

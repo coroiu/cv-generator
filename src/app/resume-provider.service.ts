@@ -38,6 +38,7 @@ export class ResumeProviderService implements OnDestroy {
     ).pipe(
       switchMap(v => {
         const editing: boolean = JSON.parse(v[0]);
+        console.log(editing);
         const resume = v[1];
         const url = v[2];
 
