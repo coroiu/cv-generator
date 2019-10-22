@@ -1,21 +1,23 @@
 {
   "styleUrl": "assets/default-theme.less",
-  "sections": {
-    "sidebar": [
-      "basics",
-      "skills",
-      "languages",
-      "interests"
-    ],
-    "main": [
-      "basics",
-      "work",
-      "volunteer",
-      "education",
-      "awards",
-      "publications",
-      "projects",
-      "references"
-    ]
-  }
+  "pages": [
+    {
+      "sidebar": [
+        "basics",
+        "skills",
+        "languages",
+        "interests"
+      ],
+      "main": [
+        "basics",
+        "work",
+        "volunteer",
+        "education",
+        "awards",
+        "publications",
+        "projects",
+        "references"
+      ]
+    }
+  ]
 }
