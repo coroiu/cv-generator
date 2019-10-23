@@ -75,7 +75,7 @@ a {
   font-size: @f;
   font-weight: bold;
   letter-spacing: 0.075em;
-  margin-bottom: @f * 0.75;
+  padding-bottom: @f * 0.75;
   line-height: 1;
 }
 
@@ -103,19 +103,20 @@ a {
 
 .duration {
   font-size: #font-sizes[h4];
+  line-height: 1.5;
 
   .start-date {
     display: inline-block;
-  }
 
-  .end-date {
-    display: inline-block;
-
-    &::before {
+    &::after {
       display: inline-block;
       content: '-';
       margin: 0 0.25em;
     }
+  }
+
+  .end-date {
+    display: inline-block;
   }
 }
 
@@ -144,7 +145,7 @@ a {
       grid-area: sidebar;
       background: #colors[primary];
       color: #colors[inverted];
-      padding: 0 @sidebar-padding;
+      padding: 0 @sidebar-padding 10mm @sidebar-padding;
 
       a {
         @c: #colors[inverted];
@@ -246,6 +247,7 @@ a {
           }
 
           .profiles {
+            grid-row: 8;
             profile {
               a {
                 .contact-entry("\ef71");
@@ -342,14 +344,14 @@ a {
               clear: both;
               margin-top: 0.5em;
               margin-bottom: 0.5em;
-              
-              .keyword {
-                line-height: @body-text-line-height;
 
-                &::before {
-                  content: "•";
-                  margin-right: 0.75em;
-                }
+              .keyword {
+                float: left;
+                margin: 0 0.5em 0.5em 0;
+                padding: 0.5em;
+                color: #colors[primary];
+                background: #colors[inverted];
+                font-size: 0.8em;
               }
             }
           }
@@ -497,9 +499,9 @@ a {
           @line-margin-left: 5mm;
           @line-margin-right: 5mm;
           display: grid; 
-          grid-template-columns: auto @line-width 1fr;
+          grid-template-columns: 0.4fr @line-width 1fr;
           grid-template-areas: 
-            "position line company"
+            "company line position"
             "duration line summary"
             "   .     line highlights";
 
@@ -511,9 +513,11 @@ a {
           .position {
             .h3();
             grid-area: position;
+            margin-left: @line-margin-right;
           }
           
           .duration {
+            .p();
             grid-area: duration;
             margin-right: @line-margin-left;
           }
@@ -544,7 +548,10 @@ a {
           .company {
             .h3();
             grid-area: company;
-            margin-left: @line-margin-right;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin-right: @line-margin-left;
           }
 
           .summary {
@@ -604,7 +611,6 @@ a {
             
             .duration {
               grid-row: 3;
-              margin-bottom: 0.25em;
             }
   
             .summary {
@@ -632,7 +638,7 @@ a {
           @line-margin-left: 5mm;
           @line-margin-right: 5mm;
           display: grid; 
-          grid-template-columns: auto @line-width 1fr;
+          grid-template-columns: 0.4fr @line-width 1fr;
           grid-template-areas: 
             "institution line area"
             "study-type  line gpa"
@@ -658,6 +664,7 @@ a {
           }
           
           .duration {
+            .p();
             grid-area: duration;
             margin-right: @line-margin-left;
           }
@@ -859,13 +866,13 @@ a {
               .h3();
               grid-row: 1;
               display: block;
-              margin-bottom: 0.25em;
+              padding-bottom: 0.25em;
             }
             
             .entity {
               .h3();
               grid-row: 2;
-              margin-bottom: 0.25em;
+              padding-bottom: 0.25em;
               font-weight: normal;
               letter-spacing: inherit;
             }
@@ -876,7 +883,6 @@ a {
             
             .duration {
               grid-row: 3;
-              margin-bottom: 0.25em;
             }
   
             .summary {
