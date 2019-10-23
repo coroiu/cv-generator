@@ -75,7 +75,7 @@ a {
   font-size: @f;
   font-weight: bold;
   letter-spacing: 0.075em;
-  margin-bottom: @f * 0.75;
+  padding-bottom: @f * 0.75;
   line-height: 1;
 }
 
@@ -499,9 +499,9 @@ a {
           @line-margin-left: 5mm;
           @line-margin-right: 5mm;
           display: grid; 
-          grid-template-columns: 0.3fr @line-width 1fr;
+          grid-template-columns: 0.4fr @line-width 1fr;
           grid-template-areas: 
-            "position line company"
+            "company line position"
             "duration line summary"
             "   .     line highlights";
 
@@ -513,7 +513,7 @@ a {
           .position {
             .h3();
             grid-area: position;
-            margin-right: @line-margin-left;
+            margin-left: @line-margin-right;
           }
           
           .duration {
@@ -547,7 +547,10 @@ a {
           .company {
             .h3();
             grid-area: company;
-            margin-left: @line-margin-right;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin-right: @line-margin-left;
           }
 
           .summary {
