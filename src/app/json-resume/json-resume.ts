@@ -4,6 +4,7 @@ export interface JsonResume {
   work?: Work[];
   volunteer?: Volunteer[];
   education?: Education[];
+  courses?: Course[];
   awards?: Award[];
   publications?: Publication[];
   skills?: Skill[];
@@ -67,6 +68,12 @@ export interface Education {
   endDate?: string;
   gpa?: string;
   courses?: string[];
+}
+
+export interface Course {
+  name?: string;
+  institution?: string;
+  highlights?: string[];
 }
 
 export interface Award {

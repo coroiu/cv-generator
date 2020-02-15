@@ -30,6 +30,10 @@
     <education *ngFor="let education of resume.education" [education]="education"></education>
   </ng-container>
 
+  <ng-container *ngIf="name === 'courses'" class="course-section">
+    <course *ngFor="let course of resume.courses" [course]="course"></course>
+  </ng-container>
+
   <ng-container *ngIf="name === 'awards'" class="award-section">
     <award *ngFor="let award of resume.awards" [award]="award"></award>
   </ng-container>

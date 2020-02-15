@@ -1,23 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap');
 
 :root {
   --theme-elements: 2;
 }
 
 #colors() {
-  primary: #343338;
-  secondary: #008cc9;
+  primary: #4c4c4c;
+  text-primary: rgb(51, 51, 51);
+  secondary: #43526e;
   black: #333133;
-  white: #f5f5f5;
-  inverted: #f3f2f6;
+  // white: #f5f5f5;
+  white: #fff;
+  inverted: #f1f1f1;
   // inverted-background: #343338;
 }
 
 #font-sizes() {
   h1: 1.5rem;
-  h2: 1.1rem;
-  h3: 0.85rem;
-  h4: 0.7rem;
+  h2: 17px;
+  h3: 16px;
+  h4: 15px;
 }
 
 @body-text-line-height: 1.5;
@@ -28,7 +31,8 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 0.7rem;
   color: #colors[black];
 }
@@ -50,14 +54,16 @@ a {
 }
 
 .h { 
-  font-family: 'Open Sans', sans-serif;
+  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
+
 }
 
 .h1 {
   .h();
   font-size: #font-sizes[h1];
   font-weight: bold;
-  letter-spacing: 0.075em;
+  // letter-spacing: 0.075em;
   line-height: 1;
 }
 
@@ -65,7 +71,7 @@ a {
   .h();
   font-size: #font-sizes[h2];
   font-weight: bold;
-  letter-spacing: 0.075em;
+  // letter-spacing: 0.075em;
   line-height: 1;
 }
 
@@ -73,19 +79,20 @@ a {
   .h();
   @f: #font-sizes[h3];
   font-size: @f;
-  font-weight: bold;
-  letter-spacing: 0.075em;
-  padding-bottom: @f * 0.75;
+  // font-weight: lighter;
+  // letter-spacing: 0.075em;
+  padding-bottom: @f * 0.5;
   line-height: 1;
 }
 
 .h4 {
   .h();
+  color: #43526e;
   @f: #font-sizes[h4];
   font-size: @f;
-  font-weight: bold;
-  letter-spacing: 0.075em;
-  margin-bottom: @f * 0.5;
+  font-weight: 700;
+  // letter-spacing: 0.075em;
+  margin-bottom: @f * 0.25;
   line-height: 1;
 }
 
@@ -135,7 +142,7 @@ a {
   resume {
     .sheet {
       display: grid;
-      grid-template-columns: 60mm 1fr;
+      grid-template-columns: 65mm 1fr;
       grid-template-rows: auto;
       grid-template-areas: 
         "sidebar main";
@@ -143,12 +150,14 @@ a {
 
     theme-section.sidebar {
       grid-area: sidebar;
-      background: #colors[primary];
-      color: #colors[inverted];
+      // background: #colors[primary];
+      // color: #colors[inverted];
+      background: #colors[inverted];
+      color: #colors[text-primary];
       padding: 0 @sidebar-padding 10mm @sidebar-padding;
 
       a {
-        @c: #colors[inverted];
+        @c: #colors[text-primary];
         color: @c;
 
         &:hover, &:active {
@@ -160,9 +169,9 @@ a {
       .sidebar-header {
         .h2();
         @color: #colors[secondary];
-        text-transform: uppercase;
+        // text-transform: uppercase;
         border-bottom: @color 2px solid;
-        padding-bottom: 2mm;
+        padding-bottom: 1mm;
         margin-top: 5mm;
         margin-bottom: 4mm;
       }
@@ -172,11 +181,11 @@ a {
           display: grid;
 
           a {
-            @c: #colors[inverted];
+            @c: #colors[text-primary];
             color: @c;
 
             &:hover, &:active {
-              color: darken(@c, 15%);
+              color: darken(@c, 25%);
               text-decoration: none;
             }
           }
@@ -186,8 +195,11 @@ a {
             grid-row: 1;
             margin: 0 -@sidebar-padding;
             img[style] {
-              width: 100% !important;
+              width: 80% !important;
               height: auto !important;
+              display: block;
+              margin: 11px auto 0 auto;
+              border-radius: 50% !important;
             }
           }
 
@@ -210,7 +222,7 @@ a {
           &::before {
             .sidebar-header();
             grid-row: 4;
-            content: "Contact";
+            content: "Kontakt";
             margin-top: 5mm;
           }
 
@@ -283,7 +295,7 @@ a {
 
           &::before {
             .sidebar-header();
-            content: "Skills";
+            content: "Kunskaper";
             grid-row: 1;
           }
 
@@ -349,8 +361,8 @@ a {
                 float: left;
                 margin: 0 0.5em 0.5em 0;
                 padding: 0.5em;
-                color: #colors[primary];
-                background: #colors[inverted];
+                color: #colors[inverted];
+                background: #colors[primary];
                 font-size: 0.8em;
               }
             }
@@ -365,7 +377,7 @@ a {
 
           &::before {
             .sidebar-header();
-            content: "Languages";
+            content: "Språk";
             grid-row: 1;
           }
 
@@ -381,7 +393,7 @@ a {
             .fluency {
               @c: #colors[inverted];
               float: right;
-              color: darken(@c, 15%);
+              color: darken(@c, 35%);
             }
           }
         }
@@ -442,7 +454,7 @@ a {
           @color: #colors[secondary];
           display: block;
           position: relative;
-          text-transform: uppercase;
+          // text-transform: uppercase;
           border-bottom: @color 2px solid;
           padding-bottom: 0.25em;
           margin: 0 0 4mm 12mm;
@@ -466,7 +478,7 @@ a {
           }
 
           &::after {
-            content: "About me";
+            content: "Om mig";
           }
         }
 
@@ -476,6 +488,7 @@ a {
 
         .summary {
           line-height: @body-text-line-height;
+          text-align: justify;
         }
       }
 
@@ -494,77 +507,43 @@ a {
         }
 
         work {
-          @line-color: #colors[secondary];
-          @line-width: 3px;
-          @line-margin-left: 5mm;
-          @line-margin-right: 5mm;
           display: grid; 
-          grid-template-columns: 0.4fr @line-width 1fr;
+          grid-template-columns: 1fr auto;
           grid-template-areas: 
-            "company line position"
-            "duration line summary"
-            "   .     line highlights";
+            "position duration"
+            "company company"
+            "summary summary"
+            "highlights highlights";
 
-          &:first-of-type {
-            @f: #font-sizes[h2];
-            margin-top: @f/2 + 1.5mm;
+          & + work {
+            margin-top: 15px;
           }
 
           .position {
             .h3();
             grid-area: position;
-            margin-left: @line-margin-right;
           }
           
           .duration {
-            .p();
+            .h3();
             grid-area: duration;
-            margin-right: @line-margin-left;
-          }
-
-          &::before {
-            display: block;
-            content: "";
-            grid-area: line;
-            background: @line-color;
-            margin-top: 2px;
-          }
-
-          &::after {
-            @radius: 6px;
-            display: block;
-            content: "";
-            grid-area: line;
-            box-sizing: border-box;
-            top: 0;
-            width: @radius * 2;
-            height: @radius * 2;
-            border-radius: @radius;
-            margin-left: -@radius + @line-width/2;
-            border: 2px solid @line-color;
-            background: #colors[white];
+            font-size: #font-sizes[h3] * 0.8;
           }
 
           .company {
-            .h3();
+            .h4();
             grid-area: company;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            margin-right: @line-margin-left;
           }
 
           .summary {
             .p();
             grid-area: summary;
-            margin-left: @line-margin-right;
             line-height: @body-text-line-height;
           }
 
           .highlights {
             .p();
             grid-area: highlights;
-            margin-left: @line-margin-right;
           }
         }
       }
@@ -633,88 +612,41 @@ a {
         }
 
         education {
-          @line-color: #colors[secondary];
-          @line-width: 3px;
-          @line-margin-left: 5mm;
-          @line-margin-right: 5mm;
           display: grid; 
-          grid-template-columns: 0.4fr @line-width 1fr;
+          grid-template-columns: 1fr auto;
           grid-template-areas: 
-            "institution line area"
-            "study-type  line gpa"
-            "duration    line courses";
-
-          &:first-of-type {
-            @f: #font-sizes[h2];
-            margin-top: @f/2 + 1.5mm;
-          }
+            "area        duration"
+            "institution institution"
+            "courses     courses";
 
           .institution {
-            .h3();
+            .h4();
             grid-area: institution;
-            margin-right: @line-margin-left;
           }
 
           .study-type {
-            .h3();
-            grid-area: study-type;
-            font-weight: normal;
-            letter-spacing: inherit;
-            margin-right: @line-margin-left;
+            display: none;
           }
           
           .duration {
-            .p();
+            .h3();
             grid-area: duration;
-            margin-right: @line-margin-left;
-          }
-
-          &::before {
-            display: block;
-            content: "";
-            grid-area: line;
-            background: @line-color;
-            margin-top: 2px;
-          }
-
-          &::after {
-            @radius: 6px;
-            display: block;
-            content: "";
-            grid-area: line;
-            box-sizing: border-box;
-            top: 0;
-            width: @radius * 2;
-            height: @radius * 2;
-            border-radius: @radius;
-            margin-left: -@radius + @line-width/2;
-            border: 2px solid @line-color;
-            background: #colors[white];
+            font-size: #font-sizes[h3] * 0.8;
           }
 
           .area {
             .h3();
             grid-area: area;
-            margin-left: @line-margin-right;
           }
 
           .gpa {
-            .h3();
-            grid-area: gpa;
-            font-weight: normal;
-            letter-spacing: inherit;
-            margin-left: @line-margin-right;
-
-            &::before {
-              content: "GPA: ";
-            }
+            display: none;
           }
 
           .courses {
             .p();
             .highlights();
             grid-area: courses;
-            margin-left: @line-margin-right;
 
             .course {
               .highlights.highlight();

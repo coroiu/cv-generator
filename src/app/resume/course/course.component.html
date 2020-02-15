@@ -1,0 +1,6 @@
+<div *ngIf="course.name" class="name">{{course.name}}</div>
+<div *ngIf="course.institution" class="institution">{{course.institution}}</div>
+
+<div *ngIf="course.highlights" class="highlights">
+  <div *ngFor="let highlight of course.highlights" class="highlight">{{highlight}}</div>
+</div>
