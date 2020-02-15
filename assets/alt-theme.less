@@ -1,0 +1,997 @@
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap');
+
+:root {
+  --theme-elements: 2;
+}
+
+#colors() {
+  primary: #4c4c4c;
+  text-primary: rgb(51, 51, 51);
+  secondary: #43526e;
+  black: #333133;
+  // white: #f5f5f5;
+  white: #fff;
+  inverted: #f1f1f1;
+  // inverted-background: #343338;
+}
+
+#font-sizes() {
+  h1: 1.5rem;
+  h2: 17px;
+  h3: 16px;
+  h4: 15px;
+}
+
+@body-text-line-height: 1.5;
+@sidebar-padding: 5mm;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.7rem;
+  color: #colors[black];
+}
+
+.sheet {
+  @c: #colors[white];
+  background: @c !important;
+}
+
+a {
+  @color: #colors[black];
+  color: @color;
+  text-decoration: none;
+  
+  &:hover, &:active {
+    color: darken(@color, 15%);
+    text-decoration: underline;
+  }
+}
+
+.h { 
+  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.h1 {
+  .h();
+  font-size: #font-sizes[h1];
+  font-weight: bold;
+  // letter-spacing: 0.075em;
+  line-height: 1;
+}
+
+.h2 {
+  .h();
+  font-size: #font-sizes[h2];
+  font-weight: bold;
+  // letter-spacing: 0.075em;
+  line-height: 1;
+}
+
+.h3 {
+  .h();
+  @f: #font-sizes[h3];
+  font-size: @f;
+  // font-weight: lighter;
+  // letter-spacing: 0.075em;
+  padding-bottom: @f * 0.5;
+  line-height: 1;
+}
+
+.h4 {
+  .h();
+  color: #43526e;
+  @f: #font-sizes[h4];
+  font-size: @f;
+  font-weight: 700;
+  // letter-spacing: 0.075em;
+  margin-bottom: @f * 0.25;
+  line-height: 1;
+}
+
+.p {
+  margin-bottom: 0.6375rem;
+}
+
+.icon(@icon) {
+  font-family: "icofont";
+  margin-right: 0.25em;
+  display: inline-block;
+  font-weight: 100;
+  content: @icon;
+}
+
+.duration {
+  font-size: #font-sizes[h4];
+  line-height: 1.5;
+
+  .start-date {
+    display: inline-block;
+
+    &::after {
+      display: inline-block;
+      content: '-';
+      margin: 0 0.25em;
+    }
+  }
+
+  .end-date {
+    display: inline-block;
+  }
+}
+
+.highlights {
+  line-height: @body-text-line-height;
+
+  .highlight {
+    &::before {
+      content: "•";
+      margin-right: 0.75em;
+    }
+  }
+}
+
+@media print, screen and (min-width: 210mm) {
+  resume {
+    .sheet {
+      display: grid;
+      grid-template-columns: 65mm 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "sidebar main";
+    }
+
+    theme-section.sidebar {
+      grid-area: sidebar;
+      // background: #colors[primary];
+      // color: #colors[inverted];
+      background: #colors[inverted];
+      color: #colors[text-primary];
+      padding: 0 @sidebar-padding 10mm @sidebar-padding;
+
+      a {
+        @c: #colors[text-primary];
+        color: @c;
+
+        &:hover, &:active {
+          color: darken(@c, 15%);
+          text-decoration: none;
+        }
+      }
+
+      .sidebar-header {
+        .h2();
+        @color: #colors[secondary];
+        // text-transform: uppercase;
+        border-bottom: @color 2px solid;
+        padding-bottom: 1mm;
+        margin-top: 5mm;
+        margin-bottom: 4mm;
+      }
+
+      resume-section.basics {
+        .section-body {
+          display: grid;
+
+          a {
+            @c: #colors[text-primary];
+            color: @c;
+
+            &:hover, &:active {
+              color: darken(@c, 25%);
+              text-decoration: none;
+            }
+          }
+
+          avatar {
+            position: relative;
+            grid-row: 1;
+            margin: 0 -@sidebar-padding;
+            img[style] {
+              width: 80% !important;
+              height: auto !important;
+              display: block;
+              margin: 11px auto 0 auto;
+              border-radius: 50% !important;
+            }
+          }
+
+          .name {
+            .h1();
+            grid-row: 2;
+            text-align: center;
+            // text-transform: uppercase;
+            margin-top: 1em;
+            line-height: 1.1;
+          }
+
+          .label {
+            grid-row: 3;
+            text-align: center;
+            margin-top: 0.75em;
+            color: #colors[secondary];
+          }
+
+          &::before {
+            .sidebar-header();
+            grid-row: 4;
+            content: "Kontakt";
+            margin-top: 5mm;
+          }
+
+          .summary {
+            display: none;
+          }
+
+          location {
+            .p();
+            line-height: 1.075;
+            grid-row: 5;
+          }
+
+          .contact-entry(@icon) {
+            .p();
+            display: flex;
+            align-items: center;
+
+            &::before {
+              font-size: 1.5rem;
+              .icon(@icon);
+              margin-right: 0.5em;
+            }
+          }
+
+          .email {
+            grid-row: 6;
+            .contact-entry("\ef12");
+          }
+
+          .phone {
+            grid-row: 7;
+            .contact-entry("\efec");
+          }
+
+          .profiles {
+            grid-row: 8;
+            profile {
+              a {
+                .contact-entry("\ef71");
+              }
+
+              &.twitter a {
+                .contact-entry("\ed7a");
+              }
+
+              &.facebook a {
+                .contact-entry("\ed37");
+              }
+
+              &.github a {
+                .contact-entry("\ed3e");
+              }
+
+              &.stack-overflow a {
+                .contact-entry("\ed70");
+              }
+
+              &.linkedin a {
+                .contact-entry("\ed4d");
+              }
+            }
+          }
+        }
+      }
+      
+      resume-section.skills {
+        .section-body {
+          display: grid;
+
+          &::before {
+            .sidebar-header();
+            content: "Kompetenser";
+            grid-row: 1;
+          }
+
+          skill {
+            position: relative;
+
+            & + skill {
+              margin-top: 1em;
+            }
+
+            .name {
+            }
+
+            .skill {
+              // 'beginner' | 'intermediate' | 'advanced' | 'master' 
+              @c: #colors[inverted];
+              @width: 30px;
+              position: absolute;
+              top: 1px;
+              right: 0;
+              color: darken(@c, 15%);
+              width: @width;
+              height: 10px;
+              background: #colors[white];
+
+              &::before {
+                display: block;
+                position: absolute;
+                content: "";
+                top: 2px;
+                bottom: 2px;
+                left: 2px;
+                background: #colors[secondary];
+              }
+
+              &.beginner::before {
+                width: (@width - 4px) * 0.25;
+              }
+
+              &.intermediate::before {
+                width: (@width - 4px) * 0.5;
+              }
+
+              &.advanced::before {
+                width: (@width - 4px) * 0.75;
+              }
+
+              &.master::before {
+                width: (@width - 4px);
+              }
+
+              .label {
+                display: none;
+              }
+            }
+
+            .keywords {
+              clear: both;
+              margin-top: 0.5em;
+              margin-bottom: 0.5em;
+
+              .keyword {
+                float: left;
+                margin: 0 0.5em 0.5em 0;
+                padding: 0.5em;
+                color: #colors[inverted];
+                background: #colors[primary];
+                font-size: 0.8em;
+              }
+            }
+          }
+        }
+
+      }
+
+      resume-section.languages {
+        .section-body {
+          display: grid;
+
+          &::before {
+            .sidebar-header();
+            content: "Språk";
+            grid-row: 1;
+          }
+
+          language {
+            & + language {
+              margin-top: 0.5em;
+            }
+
+            .language {
+              float: left;
+            }
+
+            .fluency {
+              @c: #colors[inverted];
+              float: right;
+              color: darken(@c, 35%);
+            }
+          }
+        }
+
+      }
+
+      resume-section.references {
+        .section-body {
+          display: grid;
+
+          &::before {
+            .sidebar-header();
+            content: "Referenser";
+            grid-row: 1;
+          }
+
+          reference {
+            & + reference {
+              margin-top: 0.75em;
+            }
+
+            .name {
+              font-size: 1.1em;
+              font-weight: bold;
+              padding-bottom: 0.2em;
+            }
+
+            .reference {
+              line-height: 1.2;
+              // @c: #colors[inverted];
+              // color: darken(@c, 35%);
+            }
+          }
+        }
+      }
+
+      resume-section.other {
+        .section-body {
+          display: grid;
+
+          &::before {
+            .sidebar-header();
+            content: "Övrigt";
+            grid-row: 1;
+          }
+
+          other {
+            line-height: 1.2;
+
+            b {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+      resume-section.interests {
+        &::before {
+          .sidebar-header();
+          content: "Interests";
+          display: block;
+        }
+        
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: -0.5em;
+
+          interest {
+            display: block;
+            padding: 0.5em;
+            margin: 0 1em 1em 0;
+            background: #colors[white];
+            color: #colors[black];
+
+            .name {
+              .h4();
+              margin-bottom: 0;
+            }
+
+            .keywords {
+              @f: #font-sizes[h4];
+              margin-top: @f * 0.5;
+
+              .keyword {
+                &::before {
+                  content: "•";
+                  margin-right: 0.75em;
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    theme-section.main {
+      grid-area: main;
+      padding: 10mm 10mm 0 10mm;
+
+      resume-section { 
+        display: block;
+        margin-bottom: 5mm;
+
+        .section-header {
+          .h2();
+          @color: #colors[secondary];
+          display: block;
+          position: relative;
+          // text-transform: uppercase;
+          border-bottom: @color 2px solid;
+          padding-bottom: 0.25em;
+          margin: 0 0 4mm 12mm;
+  
+          &::before {
+            position: absolute;
+            left: -12mm;
+            top: -0.4em;
+            padding: 0.4em;
+            background: #colors[secondary];
+            color: #colors[white];
+            border-radius: 50%;
+          }  
+        }
+      }
+
+      resume-section.basics {
+        .section-header { 
+          &::before {
+            .icon("\ecef");
+          }
+
+          &::after {
+            content: "Om mig";
+          }
+        }
+
+        .name, .label, .email, .phone, avatar, location, profile {
+          display: none;
+        }
+
+        .summary {
+          line-height: @body-text-line-height;
+          text-align: justify;
+        }
+      }
+
+      resume-section.work {
+        display: block;
+        position: relative;
+
+        .section-header { 
+          &::before {
+            .icon("\eec2");
+          }
+
+          &::after {
+            content: "Arbetslivserfarenhet";
+          }
+        }
+
+        work {
+          display: grid; 
+          grid-template-columns: 1fr auto;
+          grid-template-areas: 
+            "position duration"
+            "company company"
+            "summary summary"
+            "highlights highlights";
+
+          & + work {
+            margin-top: 15px;
+          }
+
+          .position {
+            .h3();
+            grid-area: position;
+          }
+          
+          .duration {
+            .h3();
+            grid-area: duration;
+            font-size: #font-sizes[h3] * 0.8;
+          }
+
+          .company {
+            .h4();
+            grid-area: company;
+          }
+
+          .summary {
+            .p();
+            grid-area: summary;
+            line-height: @body-text-line-height;
+          }
+
+          .highlights {
+            .p();
+            grid-area: highlights;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      resume-section.volunteer {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eeaa");
+          }
+
+          &::after {
+            content: "Volunteer";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          volunteer {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .organization {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .position {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+            
+            .duration {
+              grid-row: 3;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+
+      resume-section.education {
+        .section-header { 
+          &::before {
+            .icon("\eade");
+          }
+
+          &::after {
+            content: "Utbildning";
+          }
+        }
+
+        education {
+          display: grid; 
+          grid-template-columns: 1fr auto;
+          grid-template-areas: 
+            "area        duration"
+            "institution institution"
+            "courses     courses";
+
+          .institution {
+            .h4();
+            grid-area: institution;
+          }
+
+          .study-type {
+            display: none;
+          }
+          
+          .duration {
+            .h3();
+            grid-area: duration;
+            font-size: #font-sizes[h3] * 0.8;
+          }
+
+          .area {
+            .h3();
+            grid-area: area;
+          }
+
+          .gpa {
+            display: none;
+          }
+
+          .courses {
+            .p();
+            .highlights();
+            grid-area: courses;
+
+            .course {
+              .highlights.highlight();
+            }
+          }
+        }
+      }
+      
+      
+      resume-section.awards {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eace");
+          }
+
+          &::after {
+            content: "Awards";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          award {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .title {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .awarder {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+            
+            .date {
+              grid-row: 3;
+              font-size: #font-sizes[h4];
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+      
+      resume-section.publications {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eae5");
+          }
+
+          &::after {
+            content: "Publications";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          publication {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+            
+            .publisher {
+              .h3();
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+            
+            .release-date {
+              grid-row: 3;
+              font-size: #font-sizes[h4];
+              margin-bottom: 0.25em;
+            }
+  
+            .summary {
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+      
+      
+      resume-section.projects {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\ef36");
+          }
+
+          &::after {
+            content: "Projects";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm;
+
+          project {
+            display: grid;
+            width: 33%;
+            padding: 0 2.5mm;
+            margin-bottom: 7.5mm;
+            flex-grow: 1;
+
+            .type {
+              display: none;
+            }
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              padding-bottom: 0.25em;
+            }
+            
+            .entity {
+              .h3();
+              grid-row: 2;
+              padding-bottom: 0.25em;
+              font-weight: normal;
+              letter-spacing: inherit;
+            }
+
+            .type {
+              margin-bottom: 0.25em;
+            }
+            
+            .duration {
+              grid-row: 3;
+            }
+  
+            .summary {
+              grid-row: 4;
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+
+            .roles {
+              .highlights();
+              grid-row: 5;
+              margin-top: 0.25em;
+              margin-bottom: 0.25em;
+              
+              &::before {
+                .h4();
+                content: "Roles";
+              }
+
+              .role {
+                .highlights.highlight();
+              }
+            }
+
+            .highlights {
+              grid-row: 6;
+              margin-bottom: 0.25em;
+
+              &::before {
+                .h4();
+                content: "Highlights";
+              }
+            }
+
+            .keywords {
+              grid-row: 7;
+              margin-bottom: 0.25em;
+
+              .keyword {
+                float: left;
+                margin-right: 0.5em;
+                padding: 0.5em;
+                color: #colors[inverted];
+                background: #colors[primary];
+              }
+            }
+          }
+        }
+      }
+    
+      resume-section.references {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\eef1");
+          }
+
+          &::after {
+            content: "References";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm 5mm;
+
+          reference {
+            display: grid;
+            width: 50%;
+            padding: 0 2.5mm;
+            margin-bottom: 4mm;
+            flex-grow: 1;
+  
+            .name {
+              .h3();
+              grid-row: 1;
+              display: block;
+              margin-bottom: 0.25em;
+            }
+  
+            .reference {
+              grid-row: 2;
+              margin-bottom: 0.25em;
+              line-height: @body-text-line-height;
+            }
+          }
+        }
+      }
+
+      resume-section.courses {
+        margin-bottom: 2.5mm;
+
+        .section-header { 
+          &::before {
+            .icon("\ef0f");
+          }
+
+          &::after {
+            content: "Kurser";
+          }
+        }
+
+        .section-body {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2.5mm 5mm;
+
+          course {
+            width: 50%;
+            padding: 0 2.5mm;
+            margin-bottom: 4mm;
+            flex-grow: 1;
+  
+            .name {
+              .h3();
+            }
+  
+            .institution {
+              .h4();
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
