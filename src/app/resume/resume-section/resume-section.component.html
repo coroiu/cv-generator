@@ -61,4 +61,8 @@
   <ng-container *ngIf="name === 'projects'" class="project-section">
     <project *ngFor="let project of resume.projects" [project]="project"></project>
   </ng-container>
+
+  <ng-container *ngIf="name === 'other'" class="project-section">
+    <other [other]="resume.other"></other>
+  </ng-container>
 </div>

@@ -12,6 +12,7 @@ export interface JsonResume {
   interests?: Interest[];
   references?: Reference[];
   projects?: Project[];
+  other: string;
 }
 
 export interface Basics {

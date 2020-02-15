@@ -26,6 +26,7 @@ import { ThemeSectionComponent } from './resume/theme-section/theme-section.comp
 import { ResumeSectionComponent } from './resume/resume-section/resume-section.component';
 import { EditorComponent } from './editor/editor.component';
 import { CourseComponent } from './resume/course/course.component';
+import { OtherComponent } from './resume/other/other.component';
 
 const gravatarConfig = {
   size: 512,
@@ -52,7 +53,8 @@ const gravatarConfig = {
     ProjectComponent,
     ThemeSectionComponent,
     ResumeSectionComponent,
-    EditorComponent
+    EditorComponent,
+    OtherComponent
   ],
   entryComponents: [
     AvatarComponent,
