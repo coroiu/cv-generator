@@ -295,7 +295,7 @@ a {
 
           &::before {
             .sidebar-header();
-            content: "Kunskaper";
+            content: "Kompetenser";
             grid-row: 1;
           }
 
@@ -422,12 +422,32 @@ a {
             }
 
             .reference {
+              line-height: 1.2;
               // @c: #colors[inverted];
               // color: darken(@c, 35%);
             }
           }
         }
+      }
 
+      resume-section.other {
+        .section-body {
+          display: grid;
+
+          &::before {
+            .sidebar-header();
+            content: "Övrigt";
+            grid-row: 1;
+          }
+
+          other {
+            line-height: 1.2;
+
+            b {
+              font-weight: bold;
+            }
+          }
+        }
       }
 
       resume-section.interests {
@@ -532,7 +552,7 @@ a {
           }
 
           &::after {
-            content: "Experiences";
+            content: "Arbetslivserfarenhet";
           }
         }
 
@@ -574,6 +594,7 @@ a {
           .highlights {
             .p();
             grid-area: highlights;
+            margin-bottom: 0;
           }
         }
       }
@@ -637,7 +658,7 @@ a {
           }
 
           &::after {
-            content: "Education";
+            content: "Utbildning";
           }
         }
 
