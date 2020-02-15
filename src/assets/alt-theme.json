@@ -1,0 +1,23 @@
+{
+  "styleUrl": "assets/alt-theme.less",
+  "pages": [
+    {
+      "sidebar": [
+        "basics",
+        "skills",
+        "languages",
+        "interests"
+      ],
+      "main": [
+        "basics",
+        "work",
+        "volunteer",
+        "education",
+        "awards",
+        "publications",
+        "projects",
+        "references"
+      ]
+    }
+  ]
+}
