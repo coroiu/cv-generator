@@ -1,8 +1,9 @@
-import { JsonResume } from '../json-resume/json-resume';
+import { JsonResume } from "../json-resume/json-resume";
 
 export interface Theme {
   styleUrl?: string;
   style?: string;
+  styleSupplemental?: string;
   pages: ThemeSections[];
 }
 
