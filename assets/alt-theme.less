@@ -791,6 +791,7 @@ body ul {
           grid-template-areas:
           "area        duration"
           "institution institution"
+          "summary     summary"
           "courses     courses";
           
           .institution {
@@ -815,6 +816,13 @@ body ul {
           
           .gpa {
             display: none;
+          }
+
+          .summary {
+            .p();
+            margin-bottom: 0;
+            grid-area: summary;
+            line-height: @body-text-line-height;
           }
           
           .courses {
