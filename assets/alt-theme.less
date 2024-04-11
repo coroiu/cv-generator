@@ -793,7 +793,11 @@ body ul {
           "institution institution"
           "summary     summary"
           "courses     courses";
-          
+
+          & + education {
+            margin-top: 15px;
+          }
+
           .institution {
             .h4();
             grid-area: institution;
