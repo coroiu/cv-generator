@@ -27,6 +27,7 @@ import { ResumeSectionComponent } from './resume/resume-section/resume-section.c
 import { EditorComponent } from './editor/editor.component';
 import { CourseComponent } from './resume/course/course.component';
 import { OtherComponent } from './resume/other/other.component';
+import { WorkGroupComponent } from './resume/work/work-group.component';
 
 const gravatarConfig = {
   size: 512,
@@ -41,6 +42,7 @@ const gravatarConfig = {
     LocationComponent,
     ProfileComponent,
     WorkComponent,
+    WorkGroupComponent,
     VolunteerComponent,
     EducationComponent,
     CourseComponent,
@@ -62,6 +64,7 @@ const gravatarConfig = {
     LocationComponent,
     ProfileComponent,
     WorkComponent,
+    WorkGroupComponent,
     VolunteerComponent,
     EducationComponent,
     AwardComponent,

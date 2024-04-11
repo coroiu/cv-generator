@@ -95,6 +95,41 @@
       "highlights": [
         "Dolor irure labore elit occaecat."
       ]
+    },
+    {
+      "company": "Another company",
+      "position": "CTO",
+      "url": "http://company.com",
+      "startDate": "2010",
+      "endDate": "2012",
+      "summary": "Adipisicing labore irure est enim minim fugiat qui ex pariatur cupidatat id sunt. Culpa mollit adipisicing consectetur in anim eiusmod esse mollit nostrud sint commodo.",
+      "highlights": [
+        "Nulla et incididunt deserunt quis est laboris pariatur enim minim id est.",
+        "Enim reprehenderit consequat ullamco fugiat qui ex dolore."
+      ]
+    },
+    {
+      "company": "Company",
+      "position": "Senior software engineer",
+      "url": "http://company.com",
+      "startDate": "2005",
+      "endDate": "2010",
+      "summary": "Adipisicing labore irure est enim minim fugiat qui ex pariatur cupidatat id sunt. Culpa mollit adipisicing consectetur in anim eiusmod esse mollit nostrud sint commodo.",
+      "highlights": [
+        "Nulla et incididunt deserunt quis est laboris pariatur enim minim id est.",
+        "Enim reprehenderit consequat ullamco fugiat qui ex dolore."
+      ]
+    },
+    {
+      "company": "Company",
+      "position": "Software engineer",
+      "url": "http://company.com",
+      "startDate": "2002",
+      "endDate": "2005",
+      "summary": "Occaecat nulla eiusmod magna non nisi eu commodo reprehenderit. Aliqua dolore ad sunt nostrud esse elit cillum irure do sint adipisicing proident.",
+      "highlights": [
+        "Dolor irure labore elit occaecat."
+      ]
     }
   ],
   "volunteer": [

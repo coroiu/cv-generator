@@ -8,6 +8,7 @@ import { Work } from 'src/app/json-resume/json-resume';
 })
 export class WorkComponent implements OnInit {
   @Input() work: Work;
+  @Input() isInGroup: boolean;
 
   constructor() { }
 

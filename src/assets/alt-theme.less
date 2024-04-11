@@ -46,7 +46,7 @@ a {
   @color: #colors[black];
   color: @color;
   text-decoration: none;
-
+  
   &:hover,
   &:active {
     color: darken(@color, 15%);
@@ -96,13 +96,33 @@ a {
   line-height: 1;
 }
 
+.h-institution {
+  // A company, school, etc. that multiple items can be grouped under
+  .h();
+  color: #43526e;
+  @f: #font-sizes[h3];
+  font-size: @f;
+  font-weight: 700;
+  padding-bottom: @f * 0.5;
+  line-height: 1.2;
+}
+
+.h-activity {
+  // A role, position, area, etc. that defined the different items within group
+  .h();
+  @f: #font-sizes[h4];
+  font-size: @f;
+  margin-bottom: @f * 0.25;
+  line-height: 1.2;
+}
+
 .p {
   margin-bottom: 0.6375rem;
 }
 
 .p-inverse {
   margin-top: 0.6375rem;
-
+  
   &:empty {
     margin-top: 0;
   }
@@ -119,17 +139,17 @@ a {
 .duration {
   font-size: #font-sizes[h4];
   line-height: 1.5;
-
+  
   .start-date {
     display: inline-block;
-
+    
     &::after {
       display: inline-block;
       content: "-";
       margin: 0 0.25em;
     }
   }
-
+  
   .end-date {
     display: inline-block;
   }
@@ -137,7 +157,7 @@ a {
 
 .highlights {
   line-height: @body-text-line-height;
-
+  
   .highlight {
     &::before {
       content: "•";
@@ -154,7 +174,7 @@ a {
       grid-template-rows: auto;
       grid-template-areas: "sidebar main";
     }
-
+    
     theme-section.sidebar {
       grid-area: sidebar;
       // background: #colors[primary];
@@ -162,18 +182,18 @@ a {
       background: #colors[inverted];
       color: #colors[text-primary];
       padding: 0 @sidebar-padding 10mm @sidebar-padding;
-
+      
       a {
         @c: #colors[text-primary];
         color: @c;
-
+        
         &:hover,
         &:active {
           color: darken(@c, 15%);
           text-decoration: none;
         }
       }
-
+      
       .sidebar-header {
         .h2();
         @color: #colors[secondary];
@@ -183,22 +203,22 @@ a {
         margin-top: 5mm;
         margin-bottom: 4mm;
       }
-
+      
       resume-section.basics {
         .section-body {
           display: grid;
-
+          
           a {
             @c: #colors[text-primary];
             color: @c;
-
+            
             &:hover,
             &:active {
               color: darken(@c, 25%);
               text-decoration: none;
             }
           }
-
+          
           avatar {
             position: relative;
             grid-row: 1;
@@ -211,7 +231,7 @@ a {
               border-radius: 50% !important;
             }
           }
-
+          
           .name {
             .h1();
             grid-row: 2;
@@ -220,76 +240,76 @@ a {
             margin-top: 1em;
             line-height: 1.1;
           }
-
+          
           .label {
             grid-row: 3;
             text-align: center;
             margin-top: 0.75em;
             color: #colors[secondary];
           }
-
+          
           &::before {
             .sidebar-header();
             grid-row: 4;
             content: "Kontakt";
             margin-top: 5mm;
           }
-
+          
           .summary {
             display: none;
           }
-
+          
           location {
             .p();
             line-height: 1.075;
             grid-row: 5;
           }
-
+          
           .contact-entry(@icon) {
             .p();
             display: flex;
             align-items: center;
-
+            
             &::before {
               font-size: 1.5rem;
               .icon(@icon);
               margin-right: 0.5em;
             }
           }
-
+          
           .email {
             grid-row: 6;
             .contact-entry("\ef12");
           }
-
+          
           .phone {
             grid-row: 7;
             .contact-entry("\efec");
           }
-
+          
           .profiles {
             grid-row: 8;
             profile {
               a {
                 .contact-entry("\ef71");
               }
-
+              
               &.twitter a {
                 .contact-entry("\ed7a");
               }
-
+              
               &.facebook a {
                 .contact-entry("\ed37");
               }
-
+              
               &.github a {
                 .contact-entry("\ed3e");
               }
-
+              
               &.stack-overflow a {
                 .contact-entry("\ed70");
               }
-
+              
               &.linkedin a {
                 .contact-entry("\ed4d");
               }
@@ -297,27 +317,27 @@ a {
           }
         }
       }
-
+      
       resume-section.skills {
         .section-body {
           display: grid;
-
+          
           &::before {
             .sidebar-header();
             content: "Kompetenser";
             grid-row: 1;
           }
-
+          
           skill {
             position: relative;
-
+            
             & + skill {
               margin-top: 1em;
             }
-
+            
             .name {
             }
-
+            
             .skill {
               // 'beginner' | 'intermediate' | 'advanced' | 'master'
               @c: #colors[inverted];
@@ -329,7 +349,7 @@ a {
               width: @width;
               height: 10px;
               background: #colors[white];
-
+              
               &::before {
                 display: block;
                 position: absolute;
@@ -339,33 +359,33 @@ a {
                 left: 2px;
                 background: #colors[secondary];
               }
-
+              
               &.beginner::before {
                 width: (@width - 4px) * 0.25;
               }
-
+              
               &.intermediate::before {
                 width: (@width - 4px) * 0.5;
               }
-
+              
               &.advanced::before {
                 width: (@width - 4px) * 0.75;
               }
-
+              
               &.master::before {
                 width: (@width - 4px);
               }
-
+              
               .label {
                 display: none;
               }
             }
-
+            
             .keywords {
               clear: both;
               margin-top: 0.5em;
               margin-bottom: 0.5em;
-
+              
               .keyword {
                 float: left;
                 margin: 0 0.5em 0.5em 0;
@@ -378,26 +398,26 @@ a {
           }
         }
       }
-
+      
       resume-section.languages {
         .section-body {
           display: grid;
-
+          
           &::before {
             .sidebar-header();
             content: "Språk";
             grid-row: 1;
           }
-
+          
           language {
             & + language {
               margin-top: 0.5em;
             }
-
+            
             .language {
               float: left;
             }
-
+            
             .fluency {
               @c: #colors[inverted];
               float: right;
@@ -406,28 +426,28 @@ a {
           }
         }
       }
-
+      
       resume-section.references {
         .section-body {
           display: grid;
-
+          
           &::before {
             .sidebar-header();
             content: "Referenser";
             grid-row: 1;
           }
-
+          
           reference {
             & + reference {
               margin-top: 0.75em;
             }
-
+            
             .name {
               font-size: 1.1em;
               font-weight: bold;
               padding-bottom: 0.2em;
             }
-
+            
             .reference {
               line-height: 1.2;
               // @c: #colors[inverted];
@@ -436,55 +456,55 @@ a {
           }
         }
       }
-
+      
       resume-section.other {
         .section-body {
           display: grid;
-
+          
           &::before {
             .sidebar-header();
             content: "Övrigt";
             grid-row: 1;
           }
-
+          
           other {
             line-height: 1.2;
-
+            
             b {
               font-weight: bold;
             }
           }
         }
       }
-
+      
       resume-section.interests {
         &::before {
           .sidebar-header();
           content: "Interests";
           display: block;
         }
-
+        
         .section-body {
           display: flex;
           flex-wrap: wrap;
           margin-right: -0.5em;
-
+          
           interest {
             display: block;
             padding: 0.5em;
             margin: 0 1em 1em 0;
             background: #colors[white];
             color: #colors[black];
-
+            
             .name {
               .h4();
               margin-bottom: 0;
             }
-
+            
             .keywords {
               @f: #font-sizes[h4];
               margin-top: @f * 0.5;
-
+              
               .keyword {
                 &::before {
                   content: "•";
@@ -496,15 +516,15 @@ a {
         }
       }
     }
-
+    
     theme-section.main {
       grid-area: main;
       padding: 10mm 10mm 0 10mm;
-
+      
       resume-section {
         display: block;
         margin-bottom: 5mm;
-
+        
         .section-header {
           .h2();
           @color: #colors[secondary];
@@ -514,7 +534,7 @@ a {
           border-bottom: @color 2px solid;
           padding-bottom: 0.25em;
           margin: 0 0 4mm 12mm;
-
+          
           &::before {
             position: absolute;
             left: -12mm;
@@ -526,18 +546,18 @@ a {
           }
         }
       }
-
+      
       resume-section.basics {
         .section-header {
           &::before {
             .icon("\ecef");
           }
-
+          
           &::after {
             content: "Om mig";
           }
         }
-
+        
         .name,
         .label,
         .email,
@@ -547,102 +567,158 @@ a {
         profile {
           display: none;
         }
-
+        
         .summary {
           line-height: @body-text-line-height;
           text-align: justify;
         }
       }
-
+      
       resume-section.work {
         display: block;
         position: relative;
-
+        
         .section-header {
           &::before {
             .icon("\eec2");
           }
-
+          
           &::after {
             content: "Arbetslivserfarenhet";
           }
         }
+        
+        work-group {
+          display: block;
+          
+          & + work-group {
+            margin-top: 15px;
+          }
 
-        work {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          grid-template-areas:
+          &.multi-item {
+            @timeline-distance-left: -15px;
+            @dot-diameter: 6px;
+            @opacity: 0.5;
+            position: relative;
+
+            &::before {
+              content: "";
+              position: absolute;
+              background-color: #colors[text-primary];
+              width: 1px;
+              top: #font-sizes[h3] * 1.5;
+              bottom: 0;
+              left: (@timeline-distance-left + @dot-diameter/2 - 0.5px);
+              opacity: @opacity;
+            }
+
+            work {
+              position: relative;
+
+              &::before {
+                content: "";
+                position: absolute;
+                background-color: #colors[white];
+                width: @dot-diameter;
+                height: @dot-diameter * 3;
+                top: 0;
+                left: @timeline-distance-left;
+              }
+
+              &::after {
+                content: "";
+                position: absolute;
+                background-color: #colors[text-primary];
+                width: @dot-diameter;
+                height: @dot-diameter;
+                border-radius: @dot-diameter/2;
+                top: (#font-sizes[h4] - @dot-diameter)/2 + 1px;
+                left: @timeline-distance-left;
+                opacity: @opacity;
+              }
+            }
+          }
+          
+          .company {
+            .h-institution();
+            display: block;
+          }
+          
+          work {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-areas:
             "position duration"
             "company company"
             "summary summary"
             "highlights highlights";
-
-          & + work {
-            margin-top: 15px;
-          }
-
-          .position {
-            .h3();
-            grid-area: position;
-          }
-
-          .duration {
-            .h3();
-            grid-area: duration;
-            font-size: #font-sizes[h3] * 0.8;
-          }
-
-          .company {
-            .h4();
-            grid-area: company;
-          }
-
-          .summary {
-            .p();
-            margin-bottom: 0;
-            grid-area: summary;
-            line-height: @body-text-line-height;
-          }
-
-          .highlights {
-            .p-inverse();
-            grid-area: highlights;
+            
+            & + work {
+              margin-top: 15px;
+            }
+            
+            .position {
+              .h-activity();
+              grid-area: position;
+            }
+            
+            .duration {
+              .h3();
+              grid-area: duration;
+              font-size: #font-sizes[h3] * 0.8;
+            }
+            
+            .company {
+              grid-area: company;
+            }
+            
+            .summary {
+              .p();
+              margin-bottom: 0;
+              grid-area: summary;
+              line-height: @body-text-line-height;
+            }
+            
+            .highlights {
+              .p-inverse();
+              grid-area: highlights;
+            }
           }
         }
       }
-
+      
       resume-section.volunteer {
         margin-bottom: 2.5mm;
-
+        
         .section-header {
           &::before {
             .icon("\eeaa");
           }
-
+          
           &::after {
             content: "Volunteer";
           }
         }
-
+        
         .section-body {
           display: flex;
           flex-wrap: wrap;
           margin: 0 -2.5mm;
-
+          
           volunteer {
             display: grid;
             width: 33%;
             padding: 0 2.5mm;
             margin-bottom: 7.5mm;
             flex-grow: 1;
-
+            
             .organization {
               .h3();
               grid-row: 1;
               display: block;
               margin-bottom: 0.25em;
             }
-
+            
             .position {
               .h3();
               grid-row: 2;
@@ -650,11 +726,11 @@ a {
               font-weight: normal;
               letter-spacing: inherit;
             }
-
+            
             .duration {
               grid-row: 3;
             }
-
+            
             .summary {
               margin-bottom: 0.25em;
               line-height: @body-text-line-height;
@@ -662,94 +738,94 @@ a {
           }
         }
       }
-
+      
       resume-section.education {
         .section-header {
           &::before {
             .icon("\eade");
           }
-
+          
           &::after {
             content: "Utbildning";
           }
         }
-
+        
         education {
           display: grid;
           grid-template-columns: 1fr auto;
           grid-template-areas:
-            "area        duration"
-            "institution institution"
-            "courses     courses";
-
+          "area        duration"
+          "institution institution"
+          "courses     courses";
+          
           .institution {
             .h4();
             grid-area: institution;
           }
-
+          
           .study-type {
             display: none;
           }
-
+          
           .duration {
             .h3();
             grid-area: duration;
             font-size: #font-sizes[h3] * 0.8;
           }
-
+          
           .area {
             .h3();
             grid-area: area;
           }
-
+          
           .gpa {
             display: none;
           }
-
+          
           .courses {
             .p();
             .highlights();
             grid-area: courses;
-
+            
             .course {
               .highlights.highlight();
             }
           }
         }
       }
-
+      
       resume-section.awards {
         margin-bottom: 2.5mm;
-
+        
         .section-header {
           &::before {
             .icon("\eace");
           }
-
+          
           &::after {
             content: "Awards";
           }
         }
-
+        
         .section-body {
           display: flex;
           flex-wrap: wrap;
           margin: 0 -2.5mm;
-
+          
           award {
             display: grid;
             width: 33%;
             padding: 0 2.5mm;
             margin-bottom: 7.5mm;
             flex-grow: 1;
-
+            
             .title {
               .h3();
               grid-row: 1;
               display: block;
               margin-bottom: 0.25em;
             }
-
+            
             .awarder {
               .h3();
               grid-row: 2;
@@ -757,13 +833,13 @@ a {
               font-weight: normal;
               letter-spacing: inherit;
             }
-
+            
             .date {
               grid-row: 3;
               font-size: #font-sizes[h4];
               margin-bottom: 0.25em;
             }
-
+            
             .summary {
               margin-bottom: 0.25em;
               line-height: @body-text-line-height;
@@ -771,39 +847,39 @@ a {
           }
         }
       }
-
+      
       resume-section.publications {
         margin-bottom: 2.5mm;
-
+        
         .section-header {
           &::before {
             .icon("\eae5");
           }
-
+          
           &::after {
             content: "Publications";
           }
         }
-
+        
         .section-body {
           display: flex;
           flex-wrap: wrap;
           margin: 0 -2.5mm;
-
+          
           publication {
             display: grid;
             width: 33%;
             padding: 0 2.5mm;
             margin-bottom: 7.5mm;
             flex-grow: 1;
-
+            
             .name {
               .h3();
               grid-row: 1;
               display: block;
               margin-bottom: 0.25em;
             }
-
+            
             .publisher {
               .h3();
               grid-row: 2;
@@ -811,13 +887,13 @@ a {
               font-weight: normal;
               letter-spacing: inherit;
             }
-
+            
             .release-date {
               grid-row: 3;
               font-size: #font-sizes[h4];
               margin-bottom: 0.25em;
             }
-
+            
             .summary {
               margin-bottom: 0.25em;
               line-height: @body-text-line-height;
@@ -825,43 +901,43 @@ a {
           }
         }
       }
-
+      
       resume-section.projects {
         margin-bottom: 2.5mm;
-
+        
         .section-header {
           &::before {
             .icon("\ef36");
           }
-
+          
           &::after {
             content: "Projects";
           }
         }
-
+        
         .section-body {
           display: flex;
           flex-wrap: wrap;
           margin: 0 -2.5mm;
-
+          
           project {
             display: grid;
             width: 33%;
             padding: 0 2.5mm;
             margin-bottom: 7.5mm;
             flex-grow: 1;
-
+            
             .type {
               display: none;
             }
-
+            
             .name {
               .h3();
               grid-row: 1;
               display: block;
               padding-bottom: 0.25em;
             }
-
+            
             .entity {
               .h3();
               grid-row: 2;
@@ -869,51 +945,51 @@ a {
               font-weight: normal;
               letter-spacing: inherit;
             }
-
+            
             .type {
               margin-bottom: 0.25em;
             }
-
+            
             .duration {
               grid-row: 3;
             }
-
+            
             .summary {
               grid-row: 4;
               margin-bottom: 0.25em;
               line-height: @body-text-line-height;
             }
-
+            
             .roles {
               .highlights();
               grid-row: 5;
               margin-top: 0.25em;
               margin-bottom: 0.25em;
-
+              
               &::before {
                 .h4();
                 content: "Roles";
               }
-
+              
               .role {
                 .highlights.highlight();
               }
             }
-
+            
             .highlights {
               grid-row: 6;
               margin-bottom: 0.25em;
-
+              
               &::before {
                 .h4();
                 content: "Highlights";
               }
             }
-
+            
             .keywords {
               grid-row: 7;
               margin-bottom: 0.25em;
-
+              
               .keyword {
                 float: left;
                 margin-right: 0.5em;
@@ -925,39 +1001,39 @@ a {
           }
         }
       }
-
+      
       resume-section.references {
         margin-bottom: 2.5mm;
-
+        
         .section-header {
           &::before {
             .icon("\eef1");
           }
-
+          
           &::after {
             content: "References";
           }
         }
-
+        
         .section-body {
           display: flex;
           flex-wrap: wrap;
           margin: 0 -2.5mm 5mm;
-
+          
           reference {
             display: grid;
             width: 50%;
             padding: 0 2.5mm;
             margin-bottom: 4mm;
             flex-grow: 1;
-
+            
             .name {
               .h3();
               grid-row: 1;
               display: block;
               margin-bottom: 0.25em;
             }
-
+            
             .reference {
               grid-row: 2;
               margin-bottom: 0.25em;
@@ -966,35 +1042,35 @@ a {
           }
         }
       }
-
+      
       resume-section.courses {
         margin-bottom: 2.5mm;
-
+        
         .section-header {
           &::before {
             .icon("\ef0f");
           }
-
+          
           &::after {
             content: "Kurser";
           }
         }
-
+        
         .section-body {
           display: flex;
           flex-wrap: wrap;
           margin: 0 -2.5mm 5mm;
-
+          
           course {
             width: 50%;
             padding: 0 2.5mm;
             margin-bottom: 4mm;
             flex-grow: 1;
-
+            
             .name {
               .h3();
             }
-
+            
             .institution {
               .h4();
             }

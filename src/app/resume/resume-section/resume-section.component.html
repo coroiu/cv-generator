@@ -19,7 +19,8 @@
   </ng-container>
 
   <ng-container *ngIf="name === 'work'" class="work-section">
-    <work *ngFor="let work of resume.work" [work]="work"></work>
+    <work-group *ngFor="let group of groupWork(resume.work)" [items]="group"></work-group>
+    <!-- <work *ngFor="let work of resume.work" [work]="work"></work> -->
   </ng-container>
 
   <ng-container *ngIf="name === 'volunteer'" class="volunteer-section">
