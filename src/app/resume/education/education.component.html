@@ -6,7 +6,7 @@
   <div *ngIf="education.endDate" class="end-date">{{education.endDate}}</div>
 </div>
 <div *ngIf="education.gpa" class="gpa">{{education.gpa}}</div>
-
+<div *ngIf="education.summary" class="summary">{{education.summary}}</div>
 <div *ngIf="education.courses" class="courses">
   <div *ngFor="let course of education.courses" class="course">{{course}}</div>
 </div>
