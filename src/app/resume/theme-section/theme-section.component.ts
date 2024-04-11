@@ -25,4 +25,27 @@ export class ThemeSectionComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  parseSectionName(name: string) {
+    console.log(name);
+    return name.split(";")[0];
+  }
+
+  parseSectionStart(name: string) {
+    const split = name.split(";");
+    if (split.length === 1) {
+      return 0;
+    }
+
+    return parseInt(split[1].split("-")[0]);
+  }
+
+  parseSectionEnd(name: string) {
+    const split = name.split(";");
+    if (split.length === 1) {
+      return undefined;
+    }
+
+    return parseInt(split[1].split("-")[1]);
+  }
 }

@@ -1,4 +1,4 @@
-<div class="section-header"></div>
+<div *ngIf="start == 0" class="section-header"></div>
 
 <div class="section-body">
   <ng-container *ngIf="name === 'basics'">
@@ -20,7 +20,6 @@
 
   <ng-container *ngIf="name === 'work'" class="work-section">
     <work-group *ngFor="let group of groupWork(resume.work)" [items]="group"></work-group>
-    <!-- <work *ngFor="let work of resume.work" [work]="work"></work> -->
   </ng-container>
 
   <ng-container *ngIf="name === 'volunteer'" class="volunteer-section">

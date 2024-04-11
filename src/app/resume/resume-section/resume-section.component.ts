@@ -12,6 +12,8 @@ import { ResumeSection } from 'src/app/theming/theme';
 export class ResumeSectionComponent<T> implements OnInit {
   @Input() resume: JsonResume;
   @Input() name: ResumeSection = undefined;
+  @Input() start: number = 0;
+  @Input() end: number | undefined = undefined;
 
   @HostBinding('class')
   get classes() {
@@ -21,11 +23,14 @@ export class ResumeSectionComponent<T> implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.resume, this.name);
   }
 
   // TODO: This should be in a separate work section component.
   // TODO: This has bad performance, we should only calculate this on resume input changes.
   groupWork(items: Work[]): Work[][] {
+    items = items.slice(this.start, this.end);
+
     if (items.length === 0) {
       return [];
     }

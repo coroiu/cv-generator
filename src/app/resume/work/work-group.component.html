@@ -1,10 +1,12 @@
-<ng-container *ngIf="work.url">
-  <a [href]="work.url" class="company">
-    <div>{{work.company}}</div>
-  </a>
-</ng-container>
-<ng-container *ngIf="!work.url">
-  <div class="company">{{work.company}}</div>
+<ng-container *ngIf="showHeading">
+  <ng-container *ngIf="work.url">
+    <a [href]="work.url" class="company">
+      <div>{{work.company}}</div>
+    </a>
+  </ng-container>
+  <ng-container *ngIf="!work.url">
+    <div class="company">{{work.company}}</div>
+  </ng-container>
 </ng-container>
 
 <work *ngFor="let work of items" [work]="work"></work>
