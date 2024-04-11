@@ -616,13 +616,20 @@ a {
             work {
               position: relative;
 
+              & + work {
+                &::before {
+                  height: @dot-diameter * 3;
+                  top: 0;
+                }
+              }
+
               &::before {
                 content: "";
                 position: absolute;
                 background-color: #colors[white];
                 width: @dot-diameter;
-                height: @dot-diameter * 3;
-                top: 0;
+                height: @dot-diameter * 3 + 5px;
+                top: -5px;
                 left: @timeline-distance-left;
               }
 
