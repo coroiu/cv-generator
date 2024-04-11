@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./other.component.scss']
 })
 export class OtherComponent implements OnInit {
-  @Input() other: string;
+  @Input() other: string | string[];
 
   constructor(private domSanitizer: DomSanitizer) { }
 
@@ -15,7 +15,10 @@ export class OtherComponent implements OnInit {
   }
 
   get unsafe() {
-    return this.domSanitizer.bypassSecurityTrustHtml(this.other);
+    return this.domSanitizer.bypassSecurityTrustHtml(this.other as string);
   }
 
+  get isArray() {
+    return Array.isArray(this.other);
+  }
 }

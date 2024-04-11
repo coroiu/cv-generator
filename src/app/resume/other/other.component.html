@@ -1,1 +1,8 @@
-<div *ngIf="other" class="other" [innerHTML]="unsafe"></div>
+<ng-container *ngIf="isArray">
+  <ul>
+    <li *ngFor="let item of other">{{item}}</li>
+  </ul>
+</ng-container>
+<ng-container *ngIf="!isArray">
+  <div *ngIf="other" class="other" [innerHTML]="unsafe"></div>
+</ng-container>
