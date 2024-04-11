@@ -121,11 +121,17 @@ a {
   line-height: 1.2;
 }
 
+.preserve-whitespace {
+  white-space: pre-wrap;
+}
+
 .p {
+  .preserve-whitespace();
   margin-bottom: 0.6375rem;
 }
 
 .p-inverse {
+  .preserve-whitespace();
   margin-top: 0.6375rem;
   
   &:empty {
@@ -574,6 +580,7 @@ a {
         }
         
         .summary {
+          .preserve-whitespace();
           line-height: @body-text-line-height;
           text-align: justify;
         }
@@ -681,6 +688,7 @@ a {
             }
             
             .company {
+              .preserve-whitespace();
               grid-area: company;
             }
             
