@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'other',
@@ -8,9 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OtherComponent implements OnInit {
   @Input() other: string;
 
-  constructor() { }
+  constructor(private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
+  }
+
+  get unsafe() {
+    return this.domSanitizer.bypassSecurityTrustHtml(this.other);
   }
 
 }
