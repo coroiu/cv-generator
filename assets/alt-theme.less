@@ -23,6 +23,9 @@
   h2: 17px;
   h3: 16px;
   h4: 15px;
+  body: 0.8rem;
+  sidebar: 0.7rem;
+  icon: 1.5rem;
 }
 
 @body-text-line-height: 1.5;
@@ -36,7 +39,7 @@ body {
   font-family: 'Arial', sans-serif;
   // font-family: 'Open Sans', sans-serif;
   // font-family: "Raleway", sans-serif;
-  font-size: 0.8rem;
+  font-size: #font-sizes[body];
   color: #colors[black];
 }
 
@@ -180,6 +183,12 @@ a {
 body ul {
   list-style: unset;
   padding-left: 0.7rem;
+
+  li {
+    & + li {
+      margin-top: 0.5em;
+    }
+  }
 }
 
 @media print, screen and (min-width: 210mm) {
@@ -197,6 +206,7 @@ body ul {
       // color: #colors[inverted];
       background: #colors[inverted];
       color: #colors[text-primary];
+      font-size: #font-sizes[sidebar];
       padding: 0 @sidebar-padding 10mm @sidebar-padding;
       
       a {
