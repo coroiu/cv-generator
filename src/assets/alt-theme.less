@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap");
 
 #colors() {
@@ -23,6 +23,9 @@
   h2: 17px;
   h3: 16px;
   h4: 15px;
+  body: 0.8rem;
+  sidebar: 0.7rem;
+  icon: 1.5rem;
 }
 
 @body-text-line-height: 1.5;
@@ -33,9 +36,10 @@
 }
 
 body {
+  font-family: 'Arial', sans-serif;
   // font-family: 'Open Sans', sans-serif;
-  font-family: "Raleway", sans-serif;
-  font-size: 0.7rem;
+  // font-family: "Raleway", sans-serif;
+  font-size: #font-sizes[body];
   color: #colors[black];
 }
 
@@ -57,8 +61,9 @@ a {
 }
 
 .h {
+  font-family: 'Arial', sans-serif;
   // font-family: 'Open Sans', sans-serif;
-  font-family: "Raleway", sans-serif;
+  // font-family: "Raleway", sans-serif;
   white-space: pre-wrap;
 }
 
@@ -119,11 +124,17 @@ a {
   line-height: 1.2;
 }
 
+.preserve-whitespace {
+  white-space: pre-wrap;
+}
+
 .p {
+  .preserve-whitespace();
   margin-bottom: 0.6375rem;
 }
 
 .p-inverse {
+  .preserve-whitespace();
   margin-top: 0.6375rem;
   
   &:empty {
@@ -169,6 +180,11 @@ a {
   }
 }
 
+body ul {
+  list-style: unset;
+  padding-left: 0.7rem;
+}
+
 @media print, screen and (min-width: 210mm) {
   resume {
     .sheet {
@@ -184,6 +200,7 @@ a {
       // color: #colors[inverted];
       background: #colors[inverted];
       color: #colors[text-primary];
+      font-size: #font-sizes[sidebar];
       padding: 0 @sidebar-padding 10mm @sidebar-padding;
       
       a {
@@ -572,6 +589,7 @@ a {
         }
         
         .summary {
+          .preserve-whitespace();
           line-height: @body-text-line-height;
           text-align: justify;
         }
@@ -679,6 +697,7 @@ a {
             }
             
             .company {
+              .preserve-whitespace();
               grid-area: company;
             }
             
