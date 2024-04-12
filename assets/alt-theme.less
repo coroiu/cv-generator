@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap");
 
 #colors() {
-  primary: #4c4c4c;
+  primary: #4c4c4c; // previously used for keywords - a bit too dark on print
+  keyword-bg: #DcdcDc;
+  keyword-text: black;
   text-primary: black;
   // text-primary: rgb(51, 51, 51);
   secondary: #43526e;
@@ -30,6 +32,7 @@
 
 @body-text-line-height: 1.5;
 @sidebar-padding: 5mm;
+@print-margin: 10mm;
 
 * {
   box-sizing: border-box;
@@ -195,7 +198,7 @@ body ul {
   resume {
     .sheet {
       display: grid;
-      grid-template-columns: 65mm 1fr;
+      grid-template-columns: 71mm 1fr;
       grid-template-rows: auto;
       grid-template-areas: "sidebar main";
     }
@@ -208,6 +211,7 @@ body ul {
       color: #colors[text-primary];
       font-size: #font-sizes[sidebar];
       padding: 0 @sidebar-padding 10mm @sidebar-padding;
+      margin: @print-margin 0 @print-margin @print-margin;
       
       a {
         @c: #colors[text-primary];
@@ -416,8 +420,8 @@ body ul {
                 float: left;
                 margin: 0 0.5em 0.5em 0;
                 padding: 0.5em;
-                color: #colors[inverted];
-                background: #colors[primary];
+                color: #colors[keyword-text];
+                background: #colors[keyword-bg];
                 font-size: 0.8em;
               }
             }
@@ -545,11 +549,11 @@ body ul {
     
     theme-section.main {
       grid-area: main;
-      padding: 10mm 10mm 0 10mm;
+      padding: @print-margin @print-margin 0 @print-margin;
       
       resume-section {
         display: block;
-        margin-bottom: 10mm;
+        margin-bottom: @print-margin;
         
         .section-header {
           .h2();
@@ -559,12 +563,13 @@ body ul {
           // text-transform: uppercase;
           border-bottom: @color 2px solid;
           padding-bottom: 0.25em;
-          margin: 0 0 4mm 12mm;
+          @icon-top-adjust: -0.4em;
+          margin: -@icon-top-adjust 0 4mm 12mm;
           
           &::before {
             position: absolute;
             left: -12mm;
-            top: -0.4em;
+            top: @icon-top-adjust;
             padding: 0.4em;
             background: #colors[secondary];
             color: #colors[white];
@@ -1041,8 +1046,8 @@ body ul {
                 float: left;
                 margin-right: 0.5em;
                 padding: 0.5em;
-                color: #colors[inverted];
-                background: #colors[primary];
+                color: #colors[keyword-text];
+                background: #colors[keyword-bg];
               }
             }
           }
